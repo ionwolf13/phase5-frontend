@@ -21,6 +21,7 @@ class MainContainer extends Component {
         }
     }
 
+
     componentDidMount(){
 
         arr.map(url => {
@@ -36,7 +37,6 @@ class MainContainer extends Component {
 
 
    render(){
-    console.log(this.state.dataList[2])
        return(
            <div> 
                <AboutContainer prop={this.state.name}/>
