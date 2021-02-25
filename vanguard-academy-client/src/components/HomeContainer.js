@@ -3,12 +3,13 @@ import React from 'react';
 
 
 
-const HomeContainer = props => {
+const HomeContainer = ({schoolProp}) => {
 
     
     return (
         <div>
-            {props}        
+            <h1>Home Page</h1>
+                   <h1>{schoolProp[0].name}</h1> 
         </div>
     )
     

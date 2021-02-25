@@ -8,7 +8,8 @@ const EnrollContainer = props => {
     
     return (
         <div>
-            {props}        
+            <h1> Enroll Page</h1>
+                  <h1>{props.prop}</h1> 
         </div>
     )
     

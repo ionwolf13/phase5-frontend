@@ -3,12 +3,13 @@ import React from 'react';
 
 
 
-const WelcomeContainer = (props) => {
+const WelcomeContainer = ({prop}) => {
 
     
     return (
         <div>
-            {props}        
+            <h1>Welcome Page</h1>
+            <h1>{prop}</h1>
         </div>
     )
     
