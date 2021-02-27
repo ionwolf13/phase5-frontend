@@ -9,7 +9,7 @@ const HomeContainer = ({schools}) => {
     return (
         <div>
             <h1>Home Page</h1>
-            <h1> {schools[0].name}</h1>
+            {/* <h1> {schools[0].name}</h1> */}
                  
         </div>
     )
