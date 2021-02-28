@@ -5,7 +5,7 @@ import React from 'react';
 
 const AboutContainer = ({schools}) => {
 
-    console.log(schools)
+    // console.log(schools)
     return (
         <div>
                 <h1>About Page</h1>

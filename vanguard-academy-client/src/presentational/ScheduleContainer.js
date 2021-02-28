@@ -1,17 +1,12 @@
 import React from 'react'
+import RoomContainer from './RoomContainer.js';
 
-const ScheduleContainer = ({room}) => {
+const ScheduleContainer = ({rooms}) => {
 
-        // console.log( room.instructor,"this is the schedule")
+        console.log(rooms,"this is the schedule")
     return (
         <div>
-            <table>
-                <tr>Teacher: {room.instructor.first_name} {room.instructor.last_name}</tr>
-                <tr>Subject: {room.subject}</tr>
-                <tr>Current Grade: 100</tr>
-            </table>
-            
-               
+                {rooms.map(room => <RoomContainer room={room}/>)}
             
         </div>
     )
