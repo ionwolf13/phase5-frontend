@@ -4,7 +4,8 @@ import EnrollContainer from './EnrollContainer.js';
 import HomeContainer from './HomeContainer.js';
 import WelcomeContainer from './WelcomeContainer.js';
 import axios from 'axios';
-
+import NavContainer from '../functional/NavContainer.js';
+import FooterContainer from '../presentational/FooterContainer.js';
 
 const urlUsers = 'http://localhost:3001/users'
 const urlSchools = 'http://localhost:3001/schools'
@@ -16,8 +17,7 @@ const urlInstructors = 'http://localhost:3001/instructors'
 
 const MainContainer = (props) => {
 
-    let name = "i am in here"
-
+    
     const [students,setStudents] = useState([]);
     const [schools,setSchool] = useState([]);
     const [rooms,setRooms] = useState([]);
@@ -81,11 +81,12 @@ const MainContainer = (props) => {
     return(
         <div> 
             
-            <AboutContainer schools={schools}/>
+            <NavContainer/>
+            <AboutContainer schools={schools} />
             <EnrollContainer schools={schools}/>
-            <HomeContainer schools={schools}/>
+            <HomeContainer schools={schools} students={students} instructors={instructors} rooms={rooms}/>
             <WelcomeContainer students={students} rooms={rooms}/>
-
+            <FooterContainer/>
         </div>
     )
 

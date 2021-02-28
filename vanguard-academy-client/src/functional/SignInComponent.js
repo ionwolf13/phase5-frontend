@@ -1,12 +1,19 @@
-import React, {useState,useEffect} from 'react';
+
 import ProfileSection from '../presentational/ProfileSection.js'
 
 const SignInComponent = ({students, rooms}) => {
 
     return(
         <div>
-                <h5> Username: </h5>
-                <h5> Password: </h5>
+            <form onSubmit={(e) => {e.preventDefault()
+                console.log("iwas clicked")}}>
+                    <label>Username</label><br></br>
+                    <input type="text" name="username"/>  <br></br>  
+                    <label>PassWord</label><br></br>
+                    <input type="text" name="password"/><br></br>
+                    <button type="submit" value="submit">Submit</button>
+            </form>
+                
                 <ProfileSection students={students} rooms={rooms}/>
         </div>
     )
