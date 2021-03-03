@@ -4,25 +4,27 @@ import AssignmentsContainer from './AssignmentsContainer.js';
 import AddClassContainer from './AddClassContainer.js';
 import ProfileDetailContainer from './ProfileDetailContainer.js';
 
-const ProfileSection = ({students, rooms}) => {
+const ProfileSection = ({currentStudent, rooms}) => {
 
-    
+    console.log(currentStudent, "this is the students")
+    console.log("hre wer are")
     return(
         <div>
             
-                {students.map(stu => 
+                 
                 <div> 
                     <h1>Profile </h1>
-                        <ProfileDetailContainer student={stu}/>
+                        <ProfileDetailContainer student={currentStudent.student}/>
                     <h2> Current Schedule </h2>
-                        <ScheduleContainer rooms={stu.rooms}/>
+                        <ScheduleContainer rooms={currentStudent.currentClasses}/>
                     
                     
                     <h2> View Assignments </h2>
                         <AssignmentsContainer />
-                </div>)}
-                <h3> Add Class </h3>
-                        <AddClassContainer rooms={rooms}/>
+                        <h3> Add Class </h3>
+                        <AddClassContainer rooms={rooms} student={currentStudent.student}/>
+                </div>
+                
         </div>
     )
 

@@ -9,7 +9,7 @@ const AboutContainer = ({schools}) => {
     return (
         <div>
                 <h1>About Page</h1>
-                {/* <h2>{schools[0].name}</h2>
+                <h2>{schools[0].name}</h2>
                     <div> 
                         <p>The <strong>{schools[0].name}</strong> provides a rigorous course that gives our students
                         the opportunity to complete high school and an associate’s degree or at least 60 semester 
@@ -30,7 +30,7 @@ const AboutContainer = ({schools}) => {
                         Enrollment is limited. Please go to the enrollment section to see
                         application details and process.  
                         See How to Apply for an overview of the application process.
-                    </div> */}
+                    </div>
         </div>
     )
     
