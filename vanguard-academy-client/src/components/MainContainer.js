@@ -6,6 +6,11 @@ import WelcomeContainer from './WelcomeContainer.js';
 import axios from 'axios';
 import NavContainer from '../functional/NavContainer.js';
 import FooterContainer from '../presentational/FooterContainer.js';
+import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
+// import {Redirect} from 'react-router';
+import SignInComponent from '../functional/SignInComponent.js';
+import ProfileSection from '../presentational/ProfileSection.js';
+
 
 const urlUsers = 'http://localhost:3001/users'
 const urlSchools = 'http://localhost:3001/schools'
@@ -23,31 +28,10 @@ const MainContainer = (props) => {
     const [rooms,setRooms] = useState([]);
     const [studentRooms,setstudentRooms] = useState([]);
     const [instructors, setInstructors] = useState([]);
+    const [currentStudent, setCurrentStudent] = useState({isLoggedIn: false, student: {}, errors: [], status: 200, currentClasses: []})
  
     useEffect(() => {
 
-            
-      // Promise.all([
-      //   fetch(urlUsers),
-      //   fetch(urlSchools),
-      //   fetch(urlRooms),
-      //   fetch(urlStudentRooms),
-      //   fetch(urlInstructors)
-      // ])
-      // .then(async([res1, res2,res3,res4]) => {
-      //     const a = await res1.json();
-      //     const b = await res2.json();
-      //     const c = await res3.json();
-      //     const d = await res4.json();
-      //     console.log(a, "this is the value a")
-      //     console.log(b, "this is the value b")
-      //     console.log(c, "this is the value c")
-      //     console.log(d, "this is the value d")
-      // .then( )
-      // .catch(error => {
-      //   console.log(error);
-      // });
-      // })
             
             const fetchData = async () => {
               // async function fetchData
@@ -57,7 +41,7 @@ const MainContainer = (props) => {
               const stuRoomsData = await axios(urlStudentRooms);
               const instructorsData = await axios(urlInstructors);
     
-              // console.log(studentsData.data[0].rooms)
+            //   console.log(studentsData.data[0].rooms)
               // console.log(schoolsData.data)
               // console.log(roomsData.data[0].instructor)
               // console.log(stuRoomsData.data)
@@ -67,10 +51,7 @@ const MainContainer = (props) => {
               setRooms(roomsData.data)
               setstudentRooms(stuRoomsData.data)
               setInstructors(instructorsData.data)
-              // console.log(students)
-              // console.log(schools)
-              // console.log(rooms)
-              // console.log(studentRooms)
+              
             };
         
             fetchData();
@@ -80,12 +61,19 @@ const MainContainer = (props) => {
 
     return(
         <div> 
-            
             <NavContainer/>
-            <AboutContainer schools={schools} />
-            <EnrollContainer schools={schools}/>
-            <HomeContainer schools={schools} students={students} instructors={instructors} rooms={rooms}/>
-            <WelcomeContainer students={students} rooms={rooms}/>
+            <Router>
+                <Switch>
+                    <Route exact path='/home' render={routerProps => <HomeContainer {...routerProps} schools={schools}/>}/>
+                    <Route exact path='/about' render={routerProps => <AboutContainer {...routerProps} schools={schools}/>}/>
+                    <Route exact path='/enroll' render={routerProps => <EnrollContainer {...routerProps} schools={schools}/>}/>
+                    <Route path='/welcome' render={routerProps => <WelcomeContainer {...routerProps}/>}/>
+                    <Route exact path='/login' render={routerProps => <SignInComponent {...routerProps} rooms={rooms} setCurrentStudent={setCurrentStudent} currentStudent={currentStudent}/>
+                        // {currentStudent.isLoggedIn ? <Redirect to=''/> : <SignInComponent />}
+                        }/>
+                    {/* <Route path='/profile' render={routerProps => <ProfileSection {...routerProps}  currentStudent={currentStudent} rooms={rooms}/>}/> */}
+                </Switch>
+            </Router>
             <FooterContainer/>
         </div>
     )
