@@ -30,22 +30,18 @@ const MainContainer = (props) => {
     const [instructors, setInstructors] = useState([]);
     const [currentStudent, setCurrentStudent] = useState({isLoggedIn: false, student: {}, errors: [], status: 200, currentClasses: []})
  
-    useEffect(() => {
+        useEffect(() => {
 
             
             const fetchData = async () => {
-              // async function fetchData
+              
               const studentsData = await axios(urlUsers);
               const schoolsData = await axios(urlSchools);
               const roomsData = await axios(urlRooms);
               const stuRoomsData = await axios(urlStudentRooms);
               const instructorsData = await axios(urlInstructors);
     
-            //   console.log(studentsData.data[0].rooms)
-              // console.log(schoolsData.data)
-              // console.log(roomsData.data[0].instructor)
-              // console.log(stuRoomsData.data)
-              // console.log(instructorsData.data)
+              console.log(studentsData, "student Data!")
               setStudents(studentsData.data)
               setSchool(schoolsData.data)
               setRooms(roomsData.data)
