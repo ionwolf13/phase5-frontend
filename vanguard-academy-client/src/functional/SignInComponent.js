@@ -41,7 +41,7 @@ const SignInComponent = ({setCurrentStudent, currentStudent, rooms}) => {
             </form>
             <div>
                 {/* {currentUser.errors} */}
-                <ProfileSection  currentStudent={currentStudent} rooms={rooms}/>
+                <ProfileSection  currentStudent={currentStudent} setCurrentStudent={setCurrentStudent} rooms={rooms}/>
             </div>
           
                 

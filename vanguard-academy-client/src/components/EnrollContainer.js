@@ -9,7 +9,7 @@ const EnrollContainer = ({schools})=> {
     return (
         <div>
             <h1> Enroll Page</h1>
-                   
+{/*                    
                   <div>
                         <h2>HOW TO APPLY</h2>
                         <p> <strong>Thank you for your interest in {schools[0].name}</strong>.</p>
@@ -45,7 +45,7 @@ const EnrollContainer = ({schools})=> {
                         Online Application: HISD Choice
                         Paper Application Information found here
                     </p>
-                  </div>
+                  </div> */}
         </div>
     )
     

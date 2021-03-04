@@ -4,7 +4,7 @@ import AssignmentsContainer from './AssignmentsContainer.js';
 import AddClassContainer from './AddClassContainer.js';
 import ProfileDetailContainer from './ProfileDetailContainer.js';
 
-const ProfileSection = ({currentStudent, rooms}) => {
+const ProfileSection = ({currentStudent, rooms, setCurrentStudent}) => {
 
     console.log(currentStudent, "this is the students")
     console.log("hre wer are")
@@ -22,7 +22,7 @@ const ProfileSection = ({currentStudent, rooms}) => {
                     <h2> View Assignments </h2>
                         <AssignmentsContainer />
                         <h3> Add Class </h3>
-                        <AddClassContainer rooms={rooms} student={currentStudent.student}/>
+                        <AddClassContainer rooms={rooms} student={currentStudent.student} setCurrentStudent={setCurrentStudent}/>
                 </div>
                 
         </div>

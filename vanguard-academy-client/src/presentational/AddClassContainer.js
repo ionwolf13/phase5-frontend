@@ -4,12 +4,12 @@ import RoomContainer from './RoomContainer.js';
 // import axios from 'axios';
 
 
-const AddClassContainer = ({rooms, student}) => {
+const AddClassContainer = ({rooms, student, setCurrentStudent}) => {
     
     const addClassFunction = useCallback((e,room) => {
         e.preventDefault()
         console.log('clicked!!!!',room, student.first_name)
-        console.log(room.id,student.id)
+        console.log(room.id,student.id, "this is the ID.......s")
 
         axios({
             method: 'POST',
@@ -20,7 +20,7 @@ const AddClassContainer = ({rooms, student}) => {
                 }
             
         })
-        .then(res => console.log(res, res.status))
+        .then(res => setCurrentStudent({currentClasses: []}))
         // .then(res => console.log(res))
 
     }, []);
