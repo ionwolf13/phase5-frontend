@@ -2,14 +2,13 @@ import React, { useCallback , useState, useEffect} from 'react';
 import ProfileSection from '../presentational/ProfileSection.js'
 import axios from 'axios';
 
-const SignInComponent = ({setCurrentStudent, currentStudent, rooms}) => {
+const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setIsAuthenticated}) => {
 
 
 
 
     const handleSignIn = useCallback((e) => {
         e.preventDefault()
-        // console.log(e.target.username.value, "this is the event.target")
         
         axios({
             method: 'POST',
@@ -20,13 +19,13 @@ const SignInComponent = ({setCurrentStudent, currentStudent, rooms}) => {
                 }
             
         })
-        .then(res => setCurrentStudent({student: res.data, isLoggedIn: true, errors: res.errors, status: 200, currentClasses: res.data.rooms}))
-        // .then(res => console.log(res.data.rooms))
-        
-    })
+        // .then(res => console.log(res, currentStudentInfo))
+        .then(res => {
+            setIsAuthenticated({auth: true})
+            setCurrentStudentInfo({student: res.data, isLoggedIn: true, errors: res.errors, status: 200, currentClasses: res.data.rooms})})
+        })
 
 
-    // console.log(currentUser, "this is this part")
     return(
         <div>
             
@@ -40,8 +39,9 @@ const SignInComponent = ({setCurrentStudent, currentStudent, rooms}) => {
                     <button type="submit" value="submit">Submit</button>
             </form>
             <div>
-                {/* {currentUser.errors} */}
-                <ProfileSection  currentStudent={currentStudent} setCurrentStudent={setCurrentStudent} rooms={rooms}/>
+                {/* {console.log(currentStudentInfo.isLoggedIn)} */}
+                {currentStudentInfo.isLoggedIn ? <ProfileSection  currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} rooms={rooms}/> : null}
+                
             </div>
           
                 

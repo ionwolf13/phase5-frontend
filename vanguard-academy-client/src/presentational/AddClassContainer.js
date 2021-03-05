@@ -4,24 +4,21 @@ import RoomContainer from './RoomContainer.js';
 // import axios from 'axios';
 
 
-const AddClassContainer = ({rooms, student, setCurrentStudent}) => {
+const AddClassContainer = ({rooms, currentStudent, setCurrentStudentInfo}) => {
     
     const addClassFunction = useCallback((e,room) => {
         e.preventDefault()
-        console.log('clicked!!!!',room, student.first_name)
-        console.log(room.id,student.id, "this is the ID.......s")
 
         axios({
             method: 'POST',
             url: 'http://localhost:3001/student_rooms',
             data: {
-                user_id: student.id,
+                user_id: currentStudent.id,
                 room_id: room.id
                 }
             
         })
-        .then(res => setCurrentStudent({currentClasses: []}))
-        // .then(res => console.log(res))
+        .then(res => setCurrentStudentInfo({currentClasses: [...currentStudent.rooms,res]}))
 
     }, []);
 
@@ -29,7 +26,11 @@ const AddClassContainer = ({rooms, student, setCurrentStudent}) => {
         <div>
                 <h1>All Classes </h1>
                 
-                {rooms.map(r => <RoomContainer room={r} addClassFunction={addClassFunction}/>
+                {rooms.map(r => 
+                <div>
+                    <RoomContainer room={r} addClassFunction={addClassFunction}/>
+                    <button onClick={(e => {addClassFunction(e,r)})}>Add</button>
+                </div>
                 )}
 
                 
