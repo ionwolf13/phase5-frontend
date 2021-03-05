@@ -1,12 +1,13 @@
 import axios from 'axios';
-import React, { useCallback } from 'react';
+import React from 'react';
 import RoomContainer from './RoomContainer.js';
 // import axios from 'axios';
 
 
 const AddClassContainer = ({rooms, currentStudent, setCurrentStudentInfo}) => {
     
-    const addClassFunction = useCallback((e,room) => {
+
+    const handleFunc = (e,room) => {
         e.preventDefault()
 
         axios({
@@ -20,7 +21,7 @@ const AddClassContainer = ({rooms, currentStudent, setCurrentStudentInfo}) => {
         })
         .then(res => setCurrentStudentInfo({currentClasses: [...currentStudent.rooms,res]}))
 
-    }, []);
+    }
 
     return (
         <div>
@@ -28,8 +29,8 @@ const AddClassContainer = ({rooms, currentStudent, setCurrentStudentInfo}) => {
                 
                 {rooms.map(r => 
                 <div>
-                    <RoomContainer room={r} addClassFunction={addClassFunction}/>
-                    <button onClick={(e => {addClassFunction(e,r)})}>Add</button>
+                    <RoomContainer room={r} handleFunc={handleFunc}/>
+                    <button onClick={(e => {handleFunc(e,r)})}>Add</button>
                 </div>
                 )}
 

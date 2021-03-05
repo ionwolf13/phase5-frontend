@@ -6,23 +6,9 @@ const EnrollFormContainer = () => {
 
     const handleEnrollFormFunction = useCallback((e) => {
         e.preventDefault()
-        // console.log(e.target,"clicked")
 
         const [first_name, middle_name, last_name, username, age, email, email_confirmation, password, password_confirmation] = e.target
 
-        // const  data = {
-        //     first_name: first_name.value,
-        //     middle_name: middle_name.value,
-        //     last_name: last_name.value,
-        //     username: username.value,
-        //     age: age.value,
-        //     email: email.value,
-        //     email_confirmation: email_confirmation.value,
-        //     password: password.value,
-        //     password_confirmation: password_confirmation.value
-        //     }
-        //     console.log(data, "this is the data from form")
-        // console.log(data.password,data.password_confirmation, "this is the thingy")
         axios({
             method: 'POST',
             url: 'http://localhost:3001/users',
@@ -40,7 +26,7 @@ const EnrollFormContainer = () => {
             }                
         })
         .then(res => console.log(res, "this the new user"))
-        
+        e.target.reset()
 
     }, []);
 
@@ -71,10 +57,6 @@ const EnrollFormContainer = () => {
                         <input type='password' label='Confirm Password' name='password_confirmation' onChange={e => {console.log(e.target.value)}} /><br></br>
                         <button type='submit' value='submit'>Submit</button>
                     </form>
-                    
-                    <div>
-                            {}
-                    </div>
 
             </div>
 

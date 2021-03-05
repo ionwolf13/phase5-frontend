@@ -1,10 +1,10 @@
-import React, {useCallback} from 'react'
+import React from 'react'
 import axios from 'axios';
 import RoomContainer from './RoomContainer.js';
 
 const ScheduleContainer = ({studentRooms, currentStudent, setCurrentStudentInfo}) => {
 
-        const removeClassFunction = useCallback((e,room) => {
+        const removeClassFunction = (e,room) => {
             e.preventDefault()
             
             axios.get('http://localhost:3001/student_rooms', {
@@ -13,13 +13,15 @@ const ScheduleContainer = ({studentRooms, currentStudent, setCurrentStudentInfo}
                   user_id: currentStudent.id
                 }
               })
-              .then(res => {axios({
-                      method: 'DELETE',
-                      url: `http://localhost:3001/student_rooms/${res.data.id}`})
-                    .then(res => setCurrentStudentInfo({currentClasses: studentRooms.filter(r => r.id !== 1)}))
+            .then(res => {axios({
+                    method: 'DELETE',
+                    url: `http://localhost:3001/student_rooms/${res.data.id}`})
+                    .then(res => {
+                      console.log(res)
+                      setCurrentStudentInfo({currentClasses: studentRooms.filter(r => r.id !== 1)}) }  )
                     })
                 
-        }, []);
+        }
 
     return (
         <div>
