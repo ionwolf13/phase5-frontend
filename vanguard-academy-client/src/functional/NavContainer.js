@@ -1,12 +1,11 @@
 import React from 'react';
-import {Link, Router, Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const NavContainer = ({isAuthenticated}) => {
 
     return (
         <div>
                 <div>    
-                    {}
                         <Link to='/home'> Home</Link>
                         <Link to='/about'> About </Link>
                         <Link to='/welcome'> Welcome </Link>            

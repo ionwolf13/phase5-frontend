@@ -2,7 +2,6 @@ import React from 'react';
 
 const RoomContainer = ({room, addClassFunction}) => {
 
-    // console.log(room)
     return(
         <div>
                 <div>

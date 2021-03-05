@@ -1,7 +1,5 @@
 import React from 'react';
-// import { Router } from 'react-router-dom';
-import SignInComponent from '../functional/SignInComponent.js';
-import {Link, Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 

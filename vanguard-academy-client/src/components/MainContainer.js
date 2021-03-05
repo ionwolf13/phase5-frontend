@@ -6,51 +6,45 @@ import WelcomeContainer from './WelcomeContainer.js';
 import axios from 'axios';
 import NavContainer from '../functional/NavContainer.js';
 import FooterContainer from '../presentational/FooterContainer.js';
-import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
-// import {Redirect} from 'react-router';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import SignInComponent from '../functional/SignInComponent.js';
-import ProfileSection from '../presentational/ProfileSection.js';
 import EnrollFormContainer from '../functional/EnrollFormContainer.js';
 import AdmissionInfosContainer from './AdmissionsInfoContainer.js';
 import ImportantDatesContainer from './ImportantDatesContainer.js';
 
 
 
-const urlUsers = 'http://localhost:3001/users'
-const urlSchools = 'http://localhost:3001/schools'
+// const urlUsers = 'http://localhost:3001/users'
+// const urlSchools = 'http://localhost:3001/schools'
 const urlRooms = 'http://localhost:3001/rooms'
 // const urlStudentRooms = 'http://localhost:3001/student_rooms'
-const urlInstructors = 'http://localhost:3001/instructors'
+// const urlInstructors = 'http://localhost:3001/instructors'
 
 
 
 const MainContainer = (props) => {
 
-    
-    const [students,setStudents] = useState([]);
-    const [schools,setSchool] = useState([]);
-    const [rooms,setRooms] = useState([]);
+        const [rooms,setRooms] = useState([]);
     // const [studentRooms,setstudentRooms] = useState([]);
-    const [instructors, setInstructors] = useState([]);
-    const [currentStudentInfo, setCurrentStudentInfo] = useState({isLoggedIn: false, student: {}, errors: [], status: 200, currentClasses: []})
-    const [isAuthenticated,setIsAuthenticated] = useState({auth: false});
+        // const [instructors, setInstructors] = useState([]);
+        const [currentStudentInfo, setCurrentStudentInfo] = useState({isLoggedIn: false, student: {}, errors: [], status: 200, currentClasses: []})
+        const [isAuthenticated,setIsAuthenticated] = useState({auth: false, role: ""});
         useEffect(() => {
 
             
             const fetchData = async () => {
               
-              const studentsData = await axios(urlUsers);
-              const schoolsData = await axios(urlSchools);
+            //   const studentsData = await axios(urlUsers);
+            //   const schoolsData = await axios(urlSchools);
               const roomsData = await axios(urlRooms);
             //   const stuRoomsData = await axios(urlStudentRooms);
-              const instructorsData = await axios(urlInstructors);
+            //   const instructorsData = await axios(urlInstructors);
     
-              console.log(studentsData, "student Data!")
-              setStudents(studentsData.data)
-              setSchool(schoolsData.data)
+            //   setStudents(studentsData.data)
+            //   setSchool(schoolsData.data)
               setRooms(roomsData.data)
             //   setstudentRooms(stuRoomsData.data)
-              setInstructors(instructorsData.data)
+            //   setInstructors(instructorsData.data)
               
             };
         
