@@ -5,7 +5,7 @@ const RoomContainer = ({room, addClassFunction}) => {
     // console.log(room)
     return(
         <div>
-                <div onClick={e => {addClassFunction(e,room)}}>
+                <div>
                     instructor: {room.instructor.first_name} <br></br>
                     subject: {room.subject}<br></br>
                     <br></br>

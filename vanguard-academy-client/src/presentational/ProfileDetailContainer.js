@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProfileDetailContainer = ({student}) => {
+const ProfileDetailContainer = ({currentStudent}) => {
 
     return(
         <div>
@@ -8,16 +8,16 @@ const ProfileDetailContainer = ({student}) => {
                         
                         
                         <div>
-                            {student.first_name} {student.middle_name} {student.last_name }
+                            {currentStudent.first_name} {currentStudent.middle_name} {currentStudent.last_name }
                             <div>
                             Details
                             </div>
                             <div>
-                            Grade: {student.grade}
+                            Grade: {currentStudent.grade}
                                 
                             </div>
                             <div>
-                            GPA: {student.grade}
+                            GPA: {currentStudent.grade}
                             </div>
                                 
                             

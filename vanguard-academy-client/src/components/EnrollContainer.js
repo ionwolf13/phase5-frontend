@@ -1,52 +1,25 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 
 
-const EnrollContainer = ({schools})=> {
+const EnrollContainer = (props)=> {
 
     
     return (
         <div>
-            <h1> Enroll Page</h1>
-{/*                    
-                  <div>
-                        <h2>HOW TO APPLY</h2>
-                        <p> <strong>Thank you for your interest in {schools[0].name}</strong>.</p>
-                        <p> The application process period for 2021-2022 is now open. 
-                            You can submit an online application at HISD Choice starting September 19th. 
-                            The deadline to apply for Phase 1 is November 6, 2020.
-                            It is highly recommended that you apply as soon as possible as late 
-                            applicants are considered on a space available basis.
-                        </p>
+            <h2> How To Enroll </h2>
+            <p>
+            To register and enroll your child in the school that he or she is zoned to attend, you will need the following:
+            The child’s birth certificate or other proof of age and identity;
+            Proof of your identity and residential address (driver’s license and utility bill); and
+            A record of your child’s current immunizations signed by a doctor.
+            Your child may be eligible to enroll provisionally if the required immunization process has begun. Texas law requires that a child must be enrolled by the child’s parent or guardian or another person with legal control of the child under a court order. It also requires the district to record the name, address, and date of birth of the person enrolling the student.
 
-                </div>
-                <div>
-                    <h2>QUALIFYING CRITERIA</h2>
-                    <p>Students must have a minimum matrix score of "75" in order to qualify.</p>
-                        
-                </div>
-                <div>
-                    <h2>HOW TO SUBMIT AN APPLICATION</h2>
-                    <p>
-                        Online Application Demonstration from HISD Office of School Choice on Vimeo.
-                        Please view our narrated online School Choice application demonstration video.
-                    </p>
- 
-                </div>
-                <div>
-                    <h2>APPLICATION INFORMATION</h2>
-                    <p>
-                        For more information regarding the magnet application process, please 
-                        visit the Office of School Choice website.
-                    </p>
-                    <p>
-                        Magnet Matrix Calculator: How to calculate your child's matrix score
-                        Online Application: HISD Choice
-                        Paper Application Information found here
-                    </p>
-                  </div> */}
-        </div>
+            </p>
+            <Link to='/enrollmentForm'> Enrollment Form </Link>
+             </div>
     )
     
 }

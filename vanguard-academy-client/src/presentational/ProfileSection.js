@@ -4,25 +4,25 @@ import AssignmentsContainer from './AssignmentsContainer.js';
 import AddClassContainer from './AddClassContainer.js';
 import ProfileDetailContainer from './ProfileDetailContainer.js';
 
-const ProfileSection = ({currentStudent, rooms, setCurrentStudent}) => {
+const ProfileSection = ({currentStudentInfo, rooms, setCurrentStudentInfo}) => {
 
-    console.log(currentStudent, "this is the students")
-    console.log("hre wer are")
+    console.log(currentStudentInfo, "this is the students")
     return(
         <div>
             
                  
                 <div> 
                     <h1>Profile </h1>
-                        <ProfileDetailContainer student={currentStudent.student}/>
+                        <ProfileDetailContainer currentStudent={currentStudentInfo.student}/>
                     <h2> Current Schedule </h2>
-                        <ScheduleContainer rooms={currentStudent.currentClasses}/>
+                        <ScheduleContainer studentRooms={currentStudentInfo.currentClasses} currentStudent={currentStudentInfo.student} setCurrentStudentInfo={setCurrentStudentInfo}/>
+                        
                     
                     
                     <h2> View Assignments </h2>
                         <AssignmentsContainer />
                         <h3> Add Class </h3>
-                        <AddClassContainer rooms={rooms} student={currentStudent.student} setCurrentStudent={setCurrentStudent}/>
+                        <AddClassContainer rooms={rooms} currentStudent={currentStudentInfo.student} setCurrentStudentInfo={setCurrentStudentInfo}/>
                 </div>
                 
         </div>
