@@ -3,8 +3,8 @@ import OthersProfileContainer from './OthersProfileContainer.js';
 
 const RoomContainer = ({room, auth, currentInstructorInfo}) => {
 
-    console.log(auth, "ROOM")
-    console.log(currentInstructorInfo)
+    // console.log(auth, "ROOM")
+    // console.log(currentInstructorInfo)
     return(
         <div>
             {(auth.role === "stu")? 
