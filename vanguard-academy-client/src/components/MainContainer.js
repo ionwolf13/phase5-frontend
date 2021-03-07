@@ -27,7 +27,7 @@ const MainContainer = (props) => {
         const [rooms,setRooms] = useState([]);
         const [currentInstructorInfo, setCurrentInstructorInfo] = useState({instructor: {}, errors: [], status: 200, currentClasses: []})
         const [currentStudentInfo, setCurrentStudentInfo] = useState({student: {}, errors: [], status: 200, currentClasses: []})
-        const [isAuthenticated,setIsAuthenticated] = useState({auth: false, role: "", isLoggedIn: false});
+        const [isAuthenticated,setIsAuthenticated] = useState({auth: false, role: null, isLoggedIn: false});
         useEffect(() => {
 
             const fetchData = async () => {

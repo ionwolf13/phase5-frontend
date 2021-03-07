@@ -3,10 +3,11 @@ import ScheduleContainer from './ScheduleContainer.js';
 import AddClassContainer from './AddClassContainer.js';
 import ProfileDetailContainer from './ProfileDetailContainer.js';
 import ClassRoomContainer from '../functional/ClassRoomContainer.js';
+import AssignmentsContainer from './AssignmentsContainer.js';
 
 const ProfileSection = ({currentStudentInfo, rooms, setCurrentStudentInfo, isAuthenticated, currentInstructorInfo, setCurrentInstructorInfo}) => {
    
-    console.log(isAuthenticated,"PROFILE")
+    console.log(currentInstructorInfo,"PROFILE")
     return(
         <div>
             
@@ -31,10 +32,8 @@ const ProfileSection = ({currentStudentInfo, rooms, setCurrentStudentInfo, isAut
                                     <h2> Current Class </h2>
                                         <ScheduleContainer auth={isAuthenticated} currentInstructorInfo={currentInstructorInfo}/>
                                     <h2> Current Assignments </h2>
-                                        {/* <ClassRoomContainer auth={isAuthenticated} studentsInstructors={currentInstructorInfo.studentAssignments}/> */}
-                                    {/* <h3> Add Class </h3>
-                                        <AddClassContainer currentInstructor={currentInstructorInfo.student} setCurrentInstructorInfo={setCurrentInstructorInfo}/> */}
-                                    <h2> Students </h2>
+                                        <AssignmentsContainer auth={isAuthenticated} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/> 
+                                        
                         </div>
                 </div>
             }
