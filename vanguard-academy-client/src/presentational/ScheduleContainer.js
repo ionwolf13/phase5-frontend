@@ -2,38 +2,56 @@ import React from 'react'
 import axios from 'axios';
 import RoomContainer from './RoomContainer.js';
 
-const ScheduleContainer = ({studentRooms, currentStudent, setCurrentStudentInfo}) => {
+const ScheduleContainer = ({studentRooms, currentStudent, setCurrentStudentInfo, auth, currentInstructorInfo}) => {
 
+    console.log(auth,"SCHEDULE")
         const removeClassFunction = (e,room) => {
             e.preventDefault()
             
             axios.get('http://localhost:3001/student_rooms', {
                 params: {
                   room_id: room.id,
-                  user_id: currentStudent.id
+                  user_id: currentStudent.student.id
                 }
               })
-            .then(res => {axios({
+            .then(res => {
+                    axios({
                     method: 'DELETE',
                     url: `http://localhost:3001/student_rooms/${res.data.id}`})
-                    .then(res => {
-                      console.log(res)
-                      setCurrentStudentInfo({currentClasses: studentRooms.filter(r => r.id !== 1)}) }  )
+                    .then(res => { console.log(res)
+                      let arr = currentStudent.currentClasses
+                      console.log(arr)
+                      let arr2 = currentStudent.currentClasses.filter(r => r !== room )
+                      console.log(arr2)
+                      setCurrentStudentInfo({...currentStudent, currentClasses: arr2}) 
                     })
+          })
                 
         }
 
     return (
         <div>
+            {(auth.role === "stu")? 
+            
                 <div>
-                {studentRooms.map(room =>
-                    <div>
-                    <RoomContainer room={room}/>
-                    <button onClick={(e) => {removeClassFunction(e,room)}}>Remove</button>
-                    </div>
-                    )}
+                    {studentRooms.map(room =>
+                        <div>
+                        <RoomContainer room={room} auth={auth}/>
+                        <button onClick={(e) => {removeClassFunction(e,room)}}>Remove</button>
+                        </div>
+                        )}
                     
                 </div>
+            : 
+                 <div>
+                    
+                       <div>
+                            <RoomContainer currentInstructorInfo={currentInstructorInfo} auth={auth}/>
+                       </div>
+                    
+                </div>
+            }
+                
         </div>
     )
 }
