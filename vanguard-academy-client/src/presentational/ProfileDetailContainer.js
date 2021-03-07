@@ -3,33 +3,75 @@ import EditProfileFormContainer from '../functional/EditProfileFormContainer.js'
 import DeleteProfileContainer from '../functional/DeleteProfileContainer.js';
 
 
-const ProfileDetailContainer = ({currentStudent, setCurrentStudentInfo}) => {
+const ProfileDetailContainer = ({currentStudent, setCurrentStudentInfo, auth, currentInstructor, setCurrentInstructorInfo}) => {
 
+    
     return(
         <div>
+            {(auth.role === "stu")? 
                 <div>
                         <div>
-                            {currentStudent.first_name} {currentStudent.middle_name} {currentStudent.last_name }
+                            {currentStudent.student.first_name} {currentStudent.student.middle_name} {currentStudent.student.last_name }
                                 <div>
-                                    Details
+                                    <h2>Details</h2>
                                 </div>
                                 <div>
-                                    Grade: {currentStudent.grade}        
+                                    Grade: {currentStudent.student.grade}        
                                 </div>
                                 <div>
-                                    GPA: {currentStudent.grade}
+                                    GPA: {currentStudent.student.grade}
                                 </div>
                                 <div>
-                                    Username: {currentStudent.username}
+                                    Username: {currentStudent.student.username}
+                                </div>
+                                <div>
+                                    Email: {currentStudent.student.email}
                                 </div>
                         </div>
                         <div>
-                            <EditProfileFormContainer currentStudent={currentStudent} setCurrentStudentInfo={setCurrentStudentInfo}/>
+                            <EditProfileFormContainer currentStudent={currentStudent} setCurrentStudentInfo={setCurrentStudentInfo} auth={auth}/>
                         </div>
                         <div>
                             <DeleteProfileContainer student={currentStudent}/>
                         </div>
-                </div> 
+                </div>
+            : 
+                <div>
+                        <h1>Instructor</h1>
+                        
+                        <div>
+                                <h2>{currentInstructor.instructor.first_name} {currentInstructor.instructor.middle_name} {currentInstructor.instructor.last_name }</h2>
+                                    <div>
+                                        <h2>Details</h2>
+                                    </div>
+
+                                    <div>
+                                        <p>Teaching Grade: 9</p>
+                                    </div>
+
+                                    <div>
+                                        <p>Course: {currentInstructor.currentClass.subject}</p>
+                                        <p>Room #: {currentInstructor.currentClass.room_number}</p>
+                                    </div>
+
+                                    <div>
+                                        <p>Username: {currentInstructor.instructor.username}</p>
+                                    </div>
+
+                                    <div>
+                                        Contact Information:
+                                        <div>
+                                            <p>Email: {currentInstructor.instructor.email}</p>
+                                            <p>Phone:</p>
+                                        </div>
+                                    </div>
+                        </div>
+                                <div>
+                                    <EditProfileFormContainer currentInstructor={currentInstructor} setCurrentInstructorInfo={setCurrentInstructorInfo} auth={auth}/>
+                                </div>
+                                
+                </div>
+            }
         </div>
     )
 }

@@ -2,9 +2,9 @@ import React from 'react';
 import ProfileSection from '../presentational/ProfileSection.js'
 import axios from 'axios';
 
-const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setIsAuthenticated}) => {
+const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setIsAuthenticated, isAuthenticated, setCurrentInstructorInfo, currentInstructorInfo}) => {
 
-    const handleSignIn = (e) => {
+    const handleStudentSignIn = (e) => {
         e.preventDefault()
         
         axios({
@@ -13,7 +13,8 @@ const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setI
             data: { user: {
                 username: e.target.username.value,
                 password: e.target.password.value
-            }    
+            },
+            r: "stu"    
             }
             
         })     
@@ -21,7 +22,8 @@ const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setI
             if(res.data.token){
                     localStorage.toke = res.data.token
                     let newData = JSON.parse(res.data.user)
-                    setCurrentStudentInfo({student: newData, isLoggedIn: true, errors: res.errors, status: 200, currentClasses: newData.rooms, studentAssignments: newData.rooms.map(r => r.instructor)})
+                    setCurrentStudentInfo({student: newData, errors: res.errors, status: 200, currentClasses: newData.rooms, studentAssignments: newData.rooms.map(r => r.instructor)})
+                    setIsAuthenticated({auth: true, role: "stu", isLoggedIn: true})    
             }
             else{
                     alert('Invalid Login Info')
@@ -33,23 +35,78 @@ const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setI
         e.target.reset()
         }
 
+
+        const handleInstructorSignIn = (e) => {
+            e.preventDefault()
+
+            axios({
+                method: 'POST',
+                url: 'http://localhost:3001/login',
+                data: { user: {
+                    username: e.target.username.value,
+                    password: e.target.password.value
+                },
+                r: "ins"    
+                }
+                
+            })     
+            .then(res => {
+                if(res.data.token){
+                        localStorage.toke = res.data.token
+                        let newData = JSON.parse(res.data.user)
+                        
+                        setCurrentInstructorInfo({instructor: newData, errors: res.errors, status: 200, currentClass: newData.room, studentsInClass: newData.room.users, currentAssignments: newData.assignments})
+                        setIsAuthenticated({auth: true, role: "ins", isLoggedIn: true})
+                }
+                else{
+                        alert('Invalid Login Info')
+                }
+            })
+            // .then(res => {
+            //     setIsAuthenticated({auth: true})
+            //     setCurrentStudentInfo({student: res.data, isLoggedIn: true, errors: res.errors, status: 200, currentClasses: res.data.rooms, studentAssignments: res.data.rooms.map(r => r.instructor)})})
+            e.target.reset()
+        }
         
     return(
+
+       
         <div>
             
-            <h1>Sign In Page</h1>
-            <h3>Please Sign In</h3>
-            <form onSubmit={(e) => {handleSignIn(e)}}>
-                    <label>Username</label><br></br>
-                    <input type="text" name="username"/>  <br></br>  
-                    <label>PassWord</label><br></br>
-                    <input type="password" name="password"/><br></br>
-                    <button type="submit" value="submit">Submit</button>
-            </form>
+            <h1>Sign In</h1>
             <div>
-                {currentStudentInfo.isLoggedIn ? <ProfileSection  currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} rooms={rooms}/> : null}
+                <h3>Student</h3>
+                <form onSubmit={(e) => {handleStudentSignIn(e)}}>
+                        <label>Username</label><br></br>
+                        <input type="text" name="username"/>  <br></br>  
+                        <label>PassWord</label><br></br>
+                        <input type="password" name="password"/><br></br>
+                        <button type="submit" value="submit">Submit</button>
+                </form>
             </div>
-          
+            <div>
+                <h3>Faculty</h3>
+                <form onSubmit={(e) => {handleInstructorSignIn(e)}}>
+                        <label>Username</label><br></br>
+                        <input type="text" name="username"/>  <br></br>  
+                        <label>PassWord</label><br></br>
+                        <input type="password" name="password"/><br></br>
+                        <button type="submit" value="submit">Submit</button>
+                </form>
+            </div>
+
+            <div>
+                {isAuthenticated.isLoggedIn? 
+                [ (isAuthenticated.role === "stu")? 
+                <div> 
+                    <ProfileSection isAuthenticated={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} rooms={rooms}/>
+                </div>
+                : <div>
+                    <ProfileSection isAuthenticated={isAuthenticated}  currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>
+                </div>]
+                : null}
+            </div>
+            
                 
         </div>
     )

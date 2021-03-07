@@ -4,22 +4,42 @@ import AddClassContainer from './AddClassContainer.js';
 import ProfileDetailContainer from './ProfileDetailContainer.js';
 import ClassRoomContainer from '../functional/ClassRoomContainer.js';
 
-const ProfileSection = ({currentStudentInfo, rooms, setCurrentStudentInfo}) => {
-
+const ProfileSection = ({currentStudentInfo, rooms, setCurrentStudentInfo, isAuthenticated, currentInstructorInfo, setCurrentInstructorInfo}) => {
+   
+    console.log(isAuthenticated,"PROFILE")
     return(
         <div>
             
-                 
+            {(isAuthenticated.role === "stu")? 
                 <div> 
-                        <h1>Profile </h1>
-                            <ProfileDetailContainer currentStudent={currentStudentInfo.student} setCurrentStudentInfo={setCurrentStudentInfo}/>
+                        <h1>Student Profile </h1>
+                            <ProfileDetailContainer auth={isAuthenticated} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>
                         <h2> Current Schedule </h2>
-                            <ScheduleContainer studentRooms={currentStudentInfo.currentClasses} currentStudent={currentStudentInfo.student} setCurrentStudentInfo={setCurrentStudentInfo}/>
+                            <ScheduleContainer auth={isAuthenticated}studentRooms={currentStudentInfo.currentClasses} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>
                         <h2> View Assignments </h2>
                             <ClassRoomContainer studentsInstructors={currentStudentInfo.studentAssignments}/>
                         <h3> Add Class </h3>
-                            <AddClassContainer rooms={rooms} currentStudent={currentStudentInfo.student} setCurrentStudentInfo={setCurrentStudentInfo}/>
+                            <AddClassContainer rooms={rooms} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>
                 </div>
+            : 
+                <div>
+                        <h1> Faculty Page </h1>
+                        
+                        <div> 
+                                    <h1>Profile </h1>
+                                        <ProfileDetailContainer auth={isAuthenticated} currentInstructor={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>
+                                    <h2> Current Class </h2>
+                                        <ScheduleContainer auth={isAuthenticated} currentInstructorInfo={currentInstructorInfo}/>
+                                    <h2> Current Assignments </h2>
+                                        {/* <ClassRoomContainer auth={isAuthenticated} studentsInstructors={currentInstructorInfo.studentAssignments}/> */}
+                                    {/* <h3> Add Class </h3>
+                                        <AddClassContainer currentInstructor={currentInstructorInfo.student} setCurrentInstructorInfo={setCurrentInstructorInfo}/> */}
+                                    <h2> Students </h2>
+                        </div>
+                </div>
+            }
+                 
+                
                 
         </div>
     )

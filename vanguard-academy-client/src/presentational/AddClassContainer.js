@@ -6,21 +6,33 @@ import RoomContainer from './RoomContainer.js';
 
 const AddClassContainer = ({rooms, currentStudent, setCurrentStudentInfo}) => {
     
-
     const handleFunc = (e,room) => {
+        
+        // console.log(currentStudent.currentClasses.find(room), "did it find room")
         e.preventDefault()
-
-        axios({
-            method: 'POST',
-            url: 'http://localhost:3001/student_rooms',
-            data: {
-                user_id: currentStudent.id,
-                room_id: room.id
-                }
+        if(currentStudent.currentClasses.find(e => e.id === room.id)){
+            alert("You're Already In This Class.")
+            return null
+        }
+        else{
             
-        })
-        .then(res => setCurrentStudentInfo({currentClasses: [...currentStudent.rooms,res]}))
-
+            axios({
+                method: 'POST',
+                url: 'http://localhost:3001/student_rooms',
+                data: {
+                    user_id: currentStudent.student.id,
+                    room_id: room.id
+                    }
+                
+            })
+            .then(res => { 
+               
+                    let arr = []
+                    arr = currentStudent.currentClasses   
+                    let arr2 = [...arr, res.data]
+                    setCurrentStudentInfo({...currentStudent, currentClasses: arr2})
+                })
+        }
     }
 
     return (

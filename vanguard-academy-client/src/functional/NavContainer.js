@@ -1,7 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-const NavContainer = ({isAuthenticated}) => {
+const NavContainer = ({isAuthenticated,setIsAuthenticated}) => {
+
+    console.log(isAuthenticated)
+
+    const handleLogout = (e) => {
+        localStorage.clear()
+        setIsAuthenticated({auth: false, role: "", isLoggedIn: false})
+    }
 
     return (
         <div>
@@ -11,7 +18,7 @@ const NavContainer = ({isAuthenticated}) => {
                         <Link to='/welcome'> Welcome </Link>            
                         <Link to='/admissions'> Admissions </Link>
                         <Link to='/login'> Log In</Link>
-                        <Link to='/logout'> Log Out </Link>
+                        <button onClick={e => handleLogout(e)}> Log Out </button>
                 </div>
             
         </div>
