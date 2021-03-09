@@ -1,18 +1,17 @@
 import axios from 'axios';
 import React from 'react';
 import RoomContainer from './RoomContainer.js';
-// import axios from 'axios';
 
 
-const AddClassContainer = ({rooms, currentStudent, setCurrentStudentInfo}) => {
+const AddClassContainer = ({rooms, currentStudent, setCurrentStudentInfo, auth}) => {
     
     const handleFunc = (e,room) => {
         
-        // console.log(currentStudent.currentClasses.find(room), "did it find room")
+
         e.preventDefault()
         if(currentStudent.currentClasses.find(e => e.id === room.id)){
             alert("You're Already In This Class.")
-            return null
+            
         }
         else{
             
@@ -41,7 +40,7 @@ const AddClassContainer = ({rooms, currentStudent, setCurrentStudentInfo}) => {
                 
                 {rooms.map(r => 
                 <div>
-                    <RoomContainer room={r} handleFunc={handleFunc}/>
+                    <RoomContainer room={r} handleFunc={handleFunc} auth={auth}/>
                     <button onClick={(e => {handleFunc(e,r)})}>Add</button>
                 </div>
                 )}

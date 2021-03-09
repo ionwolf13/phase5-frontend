@@ -7,7 +7,7 @@ import AssignmentsContainer from './AssignmentsContainer.js';
 
 const ProfileSection = ({currentStudentInfo, rooms, setCurrentStudentInfo, isAuthenticated, currentInstructorInfo, setCurrentInstructorInfo}) => {
    
-    console.log(currentInstructorInfo,"PROFILE")
+    console.log(rooms)
     return(
         <div>
             
@@ -16,11 +16,11 @@ const ProfileSection = ({currentStudentInfo, rooms, setCurrentStudentInfo, isAut
                         <h1>Student Profile </h1>
                             <ProfileDetailContainer auth={isAuthenticated} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>
                         <h2> Current Schedule </h2>
-                            <ScheduleContainer auth={isAuthenticated}studentRooms={currentStudentInfo.currentClasses} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>
+                            <ScheduleContainer auth={isAuthenticated} studentRooms={currentStudentInfo.currentClasses} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>
                         <h2> View Assignments </h2>
-                            <ClassRoomContainer studentsInstructors={currentStudentInfo.studentAssignments}/>
+                            <ClassRoomContainer studentsInstructors={currentStudentInfo.studentAssignments} auth={isAuthenticated} currentStudentInfo={currentStudentInfo}/>
                         <h3> Add Class </h3>
-                            <AddClassContainer rooms={rooms} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>
+                            <AddClassContainer rooms={rooms} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} auth={isAuthenticated}/>
                 </div>
             : 
                 <div>

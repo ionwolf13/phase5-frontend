@@ -4,8 +4,7 @@ const AssignmentTableContainer = ({ auth, currentInstructorInfo, setCurrentInstr
 
     let updatedObject = {assignment: [], students: [student => []]}
     let obj = {}
-    console.log(updatedObject)
-    console.log(currentInstructorInfo)
+
     // const organizedObject = () => {
 
     //     currentInstructorInfo.currentAssignments.map(a => {

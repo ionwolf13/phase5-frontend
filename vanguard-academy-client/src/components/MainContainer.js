@@ -29,19 +29,17 @@ const MainContainer = (props) => {
         const [currentStudentInfo, setCurrentStudentInfo] = useState({student: {}, errors: [], status: 200, currentClasses: []})
         const [isAuthenticated,setIsAuthenticated] = useState({auth: false, role: null, isLoggedIn: false});
         useEffect(() => {
-
             const fetchData = async () => {
               
               const roomsData = await axios(urlRooms);
+              console.log(roomsData, "this is the async fetch")
               setRooms(roomsData.data)
-
-            };
-        
-            fetchData();
-            
+              
+            }
+            fetchData()
         }, []);
       
-
+        
     return(
         <div> 
             
@@ -56,7 +54,7 @@ const MainContainer = (props) => {
                         <Route exact path='/enrollmentForm' render={routerProps => <EnrollFormContainer {...routerProps} />}/>
                         <Route path='/welcome' render={routerProps => <WelcomeContainer {...routerProps}/>}/>
                         <Route exact path='/login' render={routerProps => <SignInComponent {...routerProps} rooms={rooms} setCurrentStudentInfo={setCurrentStudentInfo} currentStudentInfo={currentStudentInfo} setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>}/>
-                        
+                        <Route exact path='/profile' render={routerProps => <ProfileSection {...routerProps} isAuthenticated={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} rooms={rooms} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>} />
                         {/* NOT CONNECTED YET */}
                         
                         <Route exact path='/profileSPage' render={routerProps => <ProfileSection {...routerProps} />}/>
@@ -74,3 +72,8 @@ const MainContainer = (props) => {
 };
 
 export default MainContainer;
+
+
+
+                    
+            

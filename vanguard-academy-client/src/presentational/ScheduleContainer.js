@@ -4,7 +4,7 @@ import RoomContainer from './RoomContainer.js';
 
 const ScheduleContainer = ({studentRooms, currentStudent, setCurrentStudentInfo, auth, currentInstructorInfo}) => {
 
-    console.log(auth,"SCHEDULE")
+
         const removeClassFunction = (e,room) => {
             e.preventDefault()
             
@@ -36,7 +36,7 @@ const ScheduleContainer = ({studentRooms, currentStudent, setCurrentStudentInfo,
                 <div>
                     {studentRooms.map(room =>
                         <div>
-                        <RoomContainer room={room} auth={auth}/>
+                        <RoomContainer room={room} auth={auth} currentStudent={currentStudent}/>
                         <button onClick={(e) => {removeClassFunction(e,room)}}>Remove</button>
                         </div>
                         )}

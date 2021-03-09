@@ -1,16 +1,15 @@
 import React from 'react';
 import OthersProfileContainer from './OthersProfileContainer.js';
 
-const RoomContainer = ({room, auth, currentInstructorInfo}) => {
+const RoomContainer = ({room, auth, currentInstructorInfo, currentStudent}) => {
 
-    // console.log(auth, "ROOM")
-    // console.log(currentInstructorInfo)
+
     return(
         <div>
             {(auth.role === "stu")? 
                     <div>   
                         <div>
-                                <OthersProfileContainer room={room} auth={auth} />   
+                                <OthersProfileContainer room={room} auth={auth} student={currentStudent} />   
                         </div>
                     </div>
             : 
@@ -22,7 +21,7 @@ const RoomContainer = ({room, auth, currentInstructorInfo}) => {
                             <div>
                                 <h2>Current Students</h2>
                                 {currentInstructorInfo.studentsInClass.map(stu => <OthersProfileContainer auth={auth} student={stu}  currentInstructorInfo={currentInstructorInfo}/>)}
-                                </div>
+                            </div>
                     </div>
             }
                 
