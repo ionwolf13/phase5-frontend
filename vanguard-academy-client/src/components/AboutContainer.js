@@ -5,7 +5,6 @@ import React from 'react';
 
 const AboutContainer = (props) => {
 
-    // console.log(schools)
     return (
         <div>
                 <h1>About Page</h1>

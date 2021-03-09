@@ -2,10 +2,13 @@ import React from 'react';
 import IndividualAssignmentContainer from './IndividualAssignmentContainer.js';
 
 const OthersProfileContainer = ({room, auth, currentInstructorInfo, student}) => {
-    
-        let assignmentsArr = null
-        let assignmentWGradesArr = []
-        let assignmentObject = []
+        
+    let assignmentsArr = null
+    let assignmentWGradesArr = []
+    let assignmentObject = []
+
+    if(auth === "ins"){
+        
         const getStudentAssignments = () => {
         assignmentsArr = student.assignments.filter(a => a.instructor_id === currentInstructorInfo.instructor.id)
         currentInstructorInfo.currentAssignments.map(a => {
@@ -38,14 +41,14 @@ const OthersProfileContainer = ({room, auth, currentInstructorInfo, student}) =>
 
     getStudentAssignments()
     setSudentAssignmentObject()
-console.log(assignmentObject)
+}
     return(
             <div>
                 {(auth.role === 'stu')? 
                
                         
                 <div> 
-                        {/* <h1>Instructor</h1>
+                        <h1>Instructor</h1>
                         <h2>{room.instructor.first_name} {room.instructor.middle_name} {room.instructor.last_name }</h2>
                             <div>
                                 <h2>Details</h2>
@@ -56,8 +59,8 @@ console.log(assignmentObject)
                             </div>
 
                             <div>
-                                <p>Course: {room.currentClass.subject}</p>
-                                <p>Room #: {room.currentClass.room_number}</p>
+                                <p>Course: {room.subject}</p>
+                                <p>Room #: {room.room_number}</p>
                             </div>
 
                             <div>
@@ -70,10 +73,10 @@ console.log(assignmentObject)
                                     <p>Email: {room.instructor.email}</p>
                                     <p>Phone:</p>
                                 </div>
-                            </div> */}
-                            {/* instructor: {room.instructor.first_name} <br></br>
-                    subject: {room.subject}<br></br>
-    <br></br>*/}
+                            </div> 
+                            instructor: {room.instructor.first_name} <br></br>
+                            subject: {room.subject}<br></br>
+                            <br></br>
                 </div>
                 :
                 <div>

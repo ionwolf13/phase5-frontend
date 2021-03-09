@@ -34,7 +34,6 @@ const EditProfileFormContainer = ({currentStudent, setCurrentStudentInfo, auth, 
                         })
                         .then(res => { 
                             setCurrentStudentInfo({...currentStudent, student: res.data})
-                                                       
                         })
                 }
             else{

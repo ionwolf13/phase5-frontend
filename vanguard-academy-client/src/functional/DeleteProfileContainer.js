@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const DeleteProfileContainer = ({student}) => {
 
-    console.log(student.id,"this annoying")
     
     const deleteFunction = (e) => {
         e.preventDefault()

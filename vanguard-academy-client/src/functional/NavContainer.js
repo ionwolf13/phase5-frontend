@@ -3,9 +3,8 @@ import {Link} from 'react-router-dom'
 
 const NavContainer = ({isAuthenticated,setIsAuthenticated}) => {
 
-    console.log(isAuthenticated)
 
-    const handleLogout = (e) => {
+    const handleLogout = () => {
         localStorage.clear()
         setIsAuthenticated({auth: false, role: "", isLoggedIn: false})
     }
@@ -18,7 +17,7 @@ const NavContainer = ({isAuthenticated,setIsAuthenticated}) => {
                         <Link to='/welcome'> Welcome </Link>            
                         <Link to='/admissions'> Admissions </Link>
                         <Link to='/login'> Log In</Link>
-                        <button onClick={e => handleLogout(e)}> Log Out </button>
+                        <button onClick={handleLogout}> Log Out </button>
                 </div>
             
         </div>
