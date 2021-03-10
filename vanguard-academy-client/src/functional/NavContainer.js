@@ -12,12 +12,33 @@ const NavContainer = ({isAuthenticated,setIsAuthenticated}) => {
     return (
         <div>
                 <div>    
-                        <Link to='/home'> Home</Link>
-                        <Link to='/about'> About </Link>
-                        <Link to='/welcome'> Welcome </Link>            
-                        <Link to='/admissions'> Admissions </Link>
-                        <Link to='/login'> Log In</Link>
-                        <button onClick={handleLogout}> Log Out </button>
+                    {(isAuthenticated.isLoggedIn)? 
+                            [(isAuthenticated.role === 'stu')? 
+                            <div>
+                                <Link> Profile </Link>
+                                <Link to='/learnForm'> Learning Form </Link>
+                                <Link> Schedule </Link>
+                                <Link> Assignments </Link>
+                                <button onClick={handleLogout}> Log Out </button>
+                            </div>
+                            : 
+                            <div>
+                                <Link> Profile </Link>
+                                <Link> Classes </Link>
+                                <Link> Class Assignments </Link>
+                                <Link> Assignment Data Table </Link>
+                                <button onClick={handleLogout}> Log Out </button>
+                            </div>
+                            ]
+                    : 
+                        <div>
+                            <Link to='/home'> Home</Link>
+                            <Link to='/about'> About </Link>
+                            <Link to='/welcome'> Welcome </Link>            
+                            <Link to='/admissions'> Admissions </Link>
+                            <Link to='/login'> Log In</Link>
+                        </div>
+                    }
                 </div>
             
         </div>

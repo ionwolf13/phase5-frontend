@@ -12,6 +12,7 @@ import EnrollFormContainer from '../functional/EnrollFormContainer.js';
 import AdmissionInfosContainer from './AdmissionsInfoContainer.js';
 import ImportantDatesContainer from './ImportantDatesContainer.js';
 import ProfileSection from '../presentational/ProfileSection.js';
+import LearningFormContainer from '../functional/LearningFormComponent.js';
 
 
 
@@ -55,11 +56,7 @@ const MainContainer = (props) => {
                         <Route path='/welcome' render={routerProps => <WelcomeContainer {...routerProps}/>}/>
                         <Route exact path='/login' render={routerProps => <SignInComponent {...routerProps} rooms={rooms} setCurrentStudentInfo={setCurrentStudentInfo} currentStudentInfo={currentStudentInfo} setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>}/>
                         <Route exact path='/profile' render={routerProps => <ProfileSection {...routerProps} isAuthenticated={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} rooms={rooms} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>} />
-                        {/* NOT CONNECTED YET */}
-                        
-                        <Route exact path='/profileSPage' render={routerProps => <ProfileSection {...routerProps} />}/>
-                        <Route exact path='/profileFPage' render={routerProps => <AboutContainer {...routerProps} />}/>
-                        {/* <Route exact path='/home' render={routerProps => <ProfileSection {...routerProps}  currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} rooms={rooms}/>}/> */}
+                        <Route exact path='/learnForm' render={routerProps => <LearningFormContainer {...routerProps} auth={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>} />
                     </Switch>
             </Router>
             <FooterContainer/>
