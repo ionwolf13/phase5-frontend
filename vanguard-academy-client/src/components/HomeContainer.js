@@ -8,8 +8,8 @@ const HomeContainer = (props) => {
     
     return (
         <div>
-            <h1>Home Page</h1>
-            <h1> Vanguard Academy </h1>
+            {/* <h1>Home Page</h1> */}
+            {/* <h1> Vanguard Academy </h1> */}
                  
         </div>
     )

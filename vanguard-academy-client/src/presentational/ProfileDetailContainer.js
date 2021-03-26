@@ -19,7 +19,7 @@ const ProfileDetailContainer = ({currentStudent, setCurrentStudentInfo, auth, cu
                                     Grade: {currentStudent.student.grade}        
                                 </div>
                                 <div>
-                                    GPA: {currentStudent.student.grade}
+                                    GPA: 3.8
                                 </div>
                                 <div>
                                     Username: {currentStudent.student.username}

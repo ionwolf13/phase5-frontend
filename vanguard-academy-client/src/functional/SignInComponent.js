@@ -2,8 +2,27 @@ import React from 'react';
 // import ProfileSection from '../presentational/ProfileSection.js'
 import axios from 'axios';
 import {useHistory} from 'react-router-dom'
+import Button from '@material-ui/core/Button'
+
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid'
 
 const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setIsAuthenticated, isAuthenticated, setCurrentInstructorInfo, currentInstructorInfo}) => {
+
+
+    const useStyles = makeStyles((theme) => ({
+        root: {
+          flexGrow: 1,
+        },
+        paper: {
+          padding: theme.spacing(2),
+          textAlign: 'center',
+          color: theme.palette.text.secondary,
+        },
+      }));
+    
+      const classes = useStyles();
 
 
     let history = useHistory();
@@ -80,29 +99,60 @@ const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setI
 
        
         <div>
-            
-            <h1>Sign In</h1>
-            <div>
-                <h3>Student</h3>
-                <form onSubmit={(e) => {handleStudentSignIn(e)}}>
-                        <label>Username</label><br></br>
-                        <input type="text" name="username"/>  <br></br>  
-                        <label>PassWord</label><br></br>
-                        <input type="password" name="password"/><br></br>
-                        <button type="submit" value="submit">Submit</button>
-                </form>
-            </div>
-            <div>
-                <h3>Faculty</h3>
-                <form onSubmit={(e) => {handleInstructorSignIn(e)}}>
-                        <label>Username</label><br></br>
-                        <input type="text" name="username"/>  <br></br>  
-                        <label>PassWord</label><br></br>
-                        <input type="password" name="password"/><br></br>
-                        <button type="submit" value="submit">Submit</button>
-                </form>
-            </div>
 
+
+                <div className={classes.root}>
+                <Grid item xs={12}>
+                        <Paper className={classes.paper}>
+                            <div>
+                                <h3> Sign In </h3>
+                            </div>
+                        
+                        </Paper>
+                        </Grid>
+                        <br></br>
+                        
+                    <Grid container spacing={3}>
+                        <Grid item xs={6}>
+                        <Paper className={classes.paper}>
+                            
+                            <div>
+                                <h3>Student</h3>
+                                <form onSubmit={(e) => {handleStudentSignIn(e)}}>
+                                        <label>Username</label><br></br>
+                                        <input type="text" name="username"/>  <br></br>  
+                                        <label>PassWord</label><br></br>
+                                        <input type="password" name="password"/><br></br>
+                                        <Button type='submit' value='submit' variant="contained" color="primary" disableElevation>
+                                                Submit
+                                        </Button>
+                                </form>
+                            </div>
+                        </Paper>
+                        </Grid>
+                        
+                        <Grid item xs={6}>
+                        <Paper className={classes.paper}>
+                        <div>
+                            <h3>Faculty</h3>
+                            <form onSubmit={(e) => {handleInstructorSignIn(e)}}>
+                                    <label>Username</label><br></br>
+                                    <input type="text" name="username"/>  <br></br>  
+                                    <label>PassWord</label><br></br>
+                                    <input type="password" name="password"/><br></br>
+                                    <Button type='submit' value='submit' variant="contained" color="primary" disableElevation>
+                                        Submit
+                                    </Button>
+                            </form>
+                        </div>
+                        </Paper>
+                        </Grid>
+                        
+                        
+                </Grid>
+                
+            
+            </div>
             {/* <div>
                 {isAuthenticated.isLoggedIn? 
                 [ (isAuthenticated.role === "stu")? 

@@ -15,15 +15,18 @@ const NavContainer = ({isAuthenticated,setIsAuthenticated}) => {
                     {(isAuthenticated.isLoggedIn)? 
                             [(isAuthenticated.role === 'stu')? 
                             <div>
-                                <Link> Profile </Link>
+                                <Link to='/profile'> Profile </Link>
+                                <Link to='/profile/details'> Edit Profile </Link>
                                 <Link to='/learnForm'> Learning Form </Link>
                                 <Link> Schedule </Link>
                                 <Link> Assignments </Link>
+                                <Link to='/courses'> Request Course </Link>
                                 <button onClick={handleLogout}> Log Out </button>
                             </div>
                             : 
                             <div>
-                                <Link> Profile </Link>
+                                <Link to='/profile'> Profile </Link>
+                                <Link to='/profile/details'> Edit Profile </Link>
                                 <Link> Classes </Link>
                                 <Link> Class Assignments </Link>
                                 <Link> Assignment Data Table </Link>
