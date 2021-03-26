@@ -13,7 +13,11 @@ import AdmissionInfosContainer from './AdmissionsInfoContainer.js';
 import ImportantDatesContainer from './ImportantDatesContainer.js';
 import ProfileSection from '../presentational/ProfileSection.js';
 import LearningFormContainer from '../functional/LearningFormComponent.js';
-
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import ProfileDetailContainer from '../presentational/ProfileDetailContainer.js';
+import AddClassContainer from '../presentational/AddClassContainer.js'
 
 
 
@@ -43,22 +47,47 @@ const MainContainer = (props) => {
         
     return(
         <div> 
-            
+             
             <Router>
                     <NavContainer isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>
+                   
                     <Switch>
-                        <Route exact path='/home' render={routerProps => <HomeContainer {...routerProps} />}/>
-                        <Route exact path='/about' render={routerProps => <AboutContainer {...routerProps} />}/>
-                        <Route exact path='/admissions' render={routerProps => <AdmissionInfosContainer {...routerProps} />}/>
-                        <Route exact path='/importantDates' render={routerProps => <ImportantDatesContainer {...routerProps} />}/>
-                        <Route exact path='/enrollmentInfo' render={routerProps => <EnrollContainer {...routerProps} />}/>
-                        <Route exact path='/enrollmentForm' render={routerProps => <EnrollFormContainer {...routerProps} />}/>
-                        <Route path='/welcome' render={routerProps => <WelcomeContainer {...routerProps}/>}/>
-                        <Route exact path='/login' render={routerProps => <SignInComponent {...routerProps} rooms={rooms} setCurrentStudentInfo={setCurrentStudentInfo} currentStudentInfo={currentStudentInfo} setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>}/>
-                        <Route exact path='/profile' render={routerProps => <ProfileSection {...routerProps} isAuthenticated={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} rooms={rooms} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>} />
-                        <Route exact path='/learnForm' render={routerProps => <LearningFormContainer {...routerProps} auth={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>} />
+                    <React.Fragment>
+                    <CssBaseline />
+                    <Container maxWidth="lg">
+                        {isAuthenticated.isLoggedIn?
+                             <div>
+                                <Route exact path='/home' render={routerProps => <HomeContainer {...routerProps} />}/>
+                                <Route exact path='/about' render={routerProps => <AboutContainer {...routerProps} />}/>
+                                <Route exact path='/admissions' render={routerProps => <AdmissionInfosContainer {...routerProps} />}/>
+                                <Route exact path='/importantDates' render={routerProps => <ImportantDatesContainer {...routerProps} />}/>
+                                <Route exact path='/enrollmentInfo' render={routerProps => <EnrollContainer {...routerProps} />}/>
+                                <Route exact path='/enrollmentForm' render={routerProps => <EnrollFormContainer {...routerProps} />}/>
+                                <Route path='/welcome' render={routerProps => <WelcomeContainer {...routerProps}/>}/>
+                                <Route exact path='/login' render={routerProps => <SignInComponent {...routerProps} rooms={rooms} setCurrentStudentInfo={setCurrentStudentInfo} currentStudentInfo={currentStudentInfo} setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>}/>
+                                <Route exact path='/profile' render={routerProps => <ProfileSection {...routerProps} isAuthenticated={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} rooms={rooms} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>} />
+                                <Route exact path='/learnForm' render={routerProps => <LearningFormContainer {...routerProps} auth={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>} />
+                                <Route exact path='/profile/details' render={routerProps => <ProfileDetailContainer auth={isAuthenticated} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} currentInstructor={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>} />
+                                <Route exact path='/courses' render={routerProps => <AddClassContainer  rooms={rooms} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} auth={isAuthenticated} />}/>
+                            </div>
+                            : 
+                            <div>
+                                <Route exact path='/home' render={routerProps => <HomeContainer {...routerProps} />}/>
+                                <Route exact path='/about' render={routerProps => <AboutContainer {...routerProps} />}/>
+                                <Route exact path='/admissions' render={routerProps => <AdmissionInfosContainer {...routerProps} />}/>
+                                <Route exact path='/importantDates' render={routerProps => <ImportantDatesContainer {...routerProps} />}/>
+                                <Route exact path='/enrollmentInfo' render={routerProps => <EnrollContainer {...routerProps} />}/>
+                                <Route exact path='/enrollmentForm' render={routerProps => <EnrollFormContainer {...routerProps} />}/>
+                                <Route path='/welcome' render={routerProps => <WelcomeContainer {...routerProps}/>}/>
+                                <Route exact path='/login' render={routerProps => <SignInComponent {...routerProps} rooms={rooms} setCurrentStudentInfo={setCurrentStudentInfo} currentStudentInfo={currentStudentInfo} setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>}/>
+                            </div>
+                            
+                            }
+                        </Container>
+                        </React.Fragment>
                     </Switch>
             </Router>
+            
             <FooterContainer/>
         </div>
     )

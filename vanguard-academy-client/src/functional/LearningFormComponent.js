@@ -14,7 +14,7 @@ const LearningFormContainer = ({auth, currentStudentInfo, setCurrentStudentInfo}
         let arr = []
  
         for(let i = 0; i < 17; i++){
-            console.log(e.target.children[i], "this is", i)
+            // console.log(e.target.children[i], "this is", i)
             for(let x = 0; x < 3; x++){
                 if(e.target.children[i].elements[x].checked === true){
                     arr.push(e.target.children[i].elements[x].value)
@@ -22,9 +22,12 @@ const LearningFormContainer = ({auth, currentStudentInfo, setCurrentStudentInfo}
             }
 
         }
-    
-        setLearnValues({...learnValues, formValues: arr})
-        learnValues.formValues.map(v => {
+        console.log(arr)
+        console.log(learnValues.formValues)
+        // setLearnValues({...learnValues, formValues: arr})
+        console.log(learnValues.formValues)
+        arr.map(v => {
+            console.log(v)
             if(v === 'A'){
                 x += 1
             }
@@ -36,35 +39,33 @@ const LearningFormContainer = ({auth, currentStudentInfo, setCurrentStudentInfo}
             }
         })
         setLearnValues({...learnValues, visual: y, auditory: x, kinesthetic: z})
+        console.log(learnValues)
     }
-
-    
+    // console.log(learnValues)
+    let learnType = ""
+    if((learnValues.visual > learnValues.auditory) && (learnValues.visual > learnValues.kinesthetic)){
+        console.log(" visual learners!")
+        learnType = "VISUAL"
+    }else if((learnValues.auditory > learnValues.visual) && (learnValues.auditory > learnValues.kinesthetic)){
+        console.log("AUDITORY")
+        learnType = "AUDITORY"
+    }
+    else if((learnValues.kinesthetic > learnValues.visual) && (learnValues.kinesthetic > learnValues.auditory)){
+        console.log("KINESTHETIC")
+        learnType = "KINESTHETIC"
+    }
+    else{
+        console.log("take the test!")
+        
+    }
    
     return(
 
         <div>
-            <div>
-                <h2>Visual </h2>
-                <p>
-                    - learners can absorb more knowledge when seeing a graph, photograph, or any
-                    type of visual representation of the topic or information.
-                </p>
-                <h2>Auditory </h2>
-                <p>
-                    - learners can absorb more knowledge by just listeninig to the information from 
-                    others talking about a subject or gathering information from sounds.
-                </p>
-                <h2>Kinesthetic </h2>
-                <p>
-                    - learners prefer physcically interacting wtih something to learn, for example by 
-                    touching, feeling, holding or doing like writing, hands on experience.
-                </p>
- 
-
-            </div>
+            
             <div>
                 <h1> Learning Style Form </h1>
-                <form onSubmit={e => handleLearnForm(e)}>
+                <form onSubmit={e => handleLearnForm(e)} height={800}>
                     <fieldset name='group1' id='group1'>
                         <label>1. When you don’t quite understand or remember something:</label><br></br>
                         <input checked type='radio' value='A' name='question1' />
@@ -239,6 +240,26 @@ const LearningFormContainer = ({auth, currentStudentInfo, setCurrentStudentInfo}
             </div>
             <div>
                 <h1> Your Learning Style </h1>
+                <h2> You are a {learnType}!</h2>
+                <div>
+                <h2>Visual </h2>
+                <p>
+                    - learners can absorb more knowledge when seeing a graph, photograph, or any
+                    type of visual representation of the topic or information.
+                </p>
+                <h2>Auditory </h2>
+                <p>
+                    - learners can absorb more knowledge by just listeninig to the information from 
+                    others talking about a subject or gathering information from sounds.
+                </p>
+                <h2>Kinesthetic </h2>
+                <p>
+                    - learners prefer physcically interacting wtih something to learn, for example by 
+                    touching, feeling, holding or doing like writing, hands on experience.
+                </p>
+                
+                    
+            </div>
             </div>
         </div>
     )
