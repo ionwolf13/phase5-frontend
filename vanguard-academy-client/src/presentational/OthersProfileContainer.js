@@ -92,7 +92,7 @@ const OthersProfileContainer = ({room, auth, currentInstructorInfo, student}) =>
                                 </div>
                         </div>
                         
-                        <h3>Assignments</h3>
+                        
                         <div>
                             {assignmentObject.map(a => <IndividualAssignmentContainer assignment={a.assignment} grade={a.grade_joiner} student={a.student} auth={auth}/>)}
                         </div>

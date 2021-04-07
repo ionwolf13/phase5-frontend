@@ -1,10 +1,9 @@
 import React from 'react';
 import IndividualAssignmentContainer from './IndividualAssignmentContainer';
-import AssignmentTableContainer from './AssignmentTableContainer.js';
 import AddAssignmentFormContainer from '../functional/AddAssignmentFormComponent.js';
 
 const AssignmentsContainer = ({currentStudentInfo, assignments, auth, currentInstructorInfo, setCurrentInstructorInfo}) => {
-    console.log(auth)
+    console.log(currentInstructorInfo)
     
     // console.log(currentInstructorInfo.currentAssignments)
     let assignmentArray = []
@@ -79,7 +78,14 @@ const AssignmentsContainer = ({currentStudentInfo, assignments, auth, currentIns
                         
                     </div>
                     <div>
-                        {/* <AssignmentTableContainer auth={auth} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/> */}
+                        Students
+                        {currentInstructorInfo.studentsInClass.map(stu => {
+                            <div>
+                                    {stu.first_name}
+                            </div>
+                            
+                        })}
+
                     </div>
             </div>
             }
