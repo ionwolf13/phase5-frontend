@@ -31,8 +31,8 @@ const ProfileSection = ({currentStudentInfo, rooms, setCurrentStudentInfo, isAut
                                         <ProfileDetailContainer auth={isAuthenticated} currentInstructor={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/> */}
                                     <h2> Current Class </h2>
                                         <ScheduleContainer auth={isAuthenticated} currentInstructorInfo={currentInstructorInfo}/>
-                                    <h2> Current Assignments </h2>
-                                        <AssignmentsContainer auth={isAuthenticated} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/> 
+                                    {/* <h2> Current Assignments </h2>
+                                        <AssignmentsContainer auth={isAuthenticated} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>  */}
                                         
                         </div>
                 </div>

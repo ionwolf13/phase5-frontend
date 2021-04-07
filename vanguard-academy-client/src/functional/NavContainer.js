@@ -28,7 +28,7 @@ const NavContainer = ({isAuthenticated,setIsAuthenticated}) => {
                                 <Link to='/profile'> Profile </Link>
                                 <Link to='/profile/details'> Edit Profile </Link>
                                 <Link> Classes </Link>
-                                <Link> Class Assignments </Link>
+                                <Link to='/classAssignments'> Class Assignments </Link>
                                 <Link> Assignment Data Table </Link>
                                 <button onClick={handleLogout}> Log Out </button>
                             </div>

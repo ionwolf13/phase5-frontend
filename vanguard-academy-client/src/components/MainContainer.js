@@ -18,6 +18,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import ProfileDetailContainer from '../presentational/ProfileDetailContainer.js';
 import AddClassContainer from '../presentational/AddClassContainer.js'
+import AssignmentsContainer from '../presentational/AssignmentsContainer.js';
 
 
 
@@ -69,6 +70,7 @@ const MainContainer = (props) => {
                                 <Route exact path='/learnForm' render={routerProps => <LearningFormContainer {...routerProps} auth={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>} />
                                 <Route exact path='/profile/details' render={routerProps => <ProfileDetailContainer auth={isAuthenticated} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} currentInstructor={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>} />
                                 <Route exact path='/courses' render={routerProps => <AddClassContainer  rooms={rooms} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} auth={isAuthenticated} />}/>
+                                <Route exact path='/classAssignments' render={routerProps =>  <AssignmentsContainer auth={isAuthenticated} {...routerProps} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>}/>
                             </div>
                             : 
                             <div>
