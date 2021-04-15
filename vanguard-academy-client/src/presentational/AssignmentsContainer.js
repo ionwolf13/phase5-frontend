@@ -53,6 +53,12 @@ const AssignmentsContainer = ({currentStudentInfo, assignments, auth, currentIns
 
             
         }
+        
+        const assignAssignmentFunction = (e) => {
+            e.preventDefault()
+            debugger
+            console.log(e.target)
+        }
 
         
     
@@ -67,6 +73,7 @@ const AssignmentsContainer = ({currentStudentInfo, assignments, auth, currentIns
             </div> 
             :
             <div>
+                <div>
                     <div>
                         {currentInstructorInfo.currentAssignments.map(assign => 
                         <div>
@@ -78,15 +85,18 @@ const AssignmentsContainer = ({currentStudentInfo, assignments, auth, currentIns
                         
                     </div>
                     <div>
-                        Students
-                        {currentInstructorInfo.studentsInClass.map(stu => {
+                        <h2>Assign to Student(s)</h2>  
+                        <form onSubmit={e => assignAssignmentFunction(e)}> 
+                        {currentInstructorInfo.studentsInClass.map(stu => 
                             <div>
-                                    {stu.first_name}
+                                <input type="checkbox" name={stu.first_name} value={stu.id}/>
+                                <label> {stu.first_name} </label>
                             </div>
-                            
-                        })}
-
+                        )}
+                        <button type="submit" value="submit"> Submit </button>
+                        </form>
                     </div>
+                </div>
             </div>
             }
                         
