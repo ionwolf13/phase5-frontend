@@ -47,7 +47,7 @@ const MainContainer = (props) => {
       
         
     return(
-        <div> 
+        <div className='main-comp-af1'> 
              
             <Router>
                     <NavContainer isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>
@@ -57,7 +57,7 @@ const MainContainer = (props) => {
                     <CssBaseline />
                     <Container maxWidth="lg">
                         {isAuthenticated.isLoggedIn?
-                             <div>
+                             <div className='main-comp-af1' id='comp-af1-lgi'>
                                 <Route exact path='/home' render={routerProps => <HomeContainer {...routerProps} />}/>
                                 <Route exact path='/about' render={routerProps => <AboutContainer {...routerProps} />}/>
                                 <Route exact path='/admissions' render={routerProps => <AdmissionInfosContainer {...routerProps} />}/>
@@ -73,7 +73,7 @@ const MainContainer = (props) => {
                                 <Route exact path='/classAssignments' render={routerProps =>  <AssignmentsContainer auth={isAuthenticated} {...routerProps} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>}/>
                             </div>
                             : 
-                            <div>
+                            <div className='main-comp-af1' id='comp-af1-lgo'>
                                 <Route exact path='/home' render={routerProps => <HomeContainer {...routerProps} />}/>
                                 <Route exact path='/about' render={routerProps => <AboutContainer {...routerProps} />}/>
                                 <Route exact path='/admissions' render={routerProps => <AdmissionInfosContainer {...routerProps} />}/>
