@@ -7,10 +7,8 @@ const RoomContainer = ({room, auth, currentInstructorInfo, currentStudent}) => {
     return(
         <div>
             {(auth.role === "stu")? 
-                    <div>   
-                        <div>
-                                <OthersProfileContainer room={room} auth={auth} student={currentStudent} />   
-                        </div>
+                    <div>
+                                <OthersProfileContainer room={room} auth={auth} student={currentStudent} />
                     </div>
             : 
                     <div>

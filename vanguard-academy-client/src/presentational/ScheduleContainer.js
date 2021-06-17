@@ -32,23 +32,19 @@ const ScheduleContainer = ({studentRooms, currentStudent, setCurrentStudentInfo,
     return (
         <div>
             {(auth.role === "stu")? 
-            
                 <div>
                     {studentRooms.map(room =>
                         <div>
-                        <RoomContainer room={room} auth={auth} currentStudent={currentStudent}/>
-                        <button onClick={(e) => {removeClassFunction(e,room)}}>Remove</button>
+                            <RoomContainer room={room} auth={auth} currentStudent={currentStudent}/>
+                            <button onClick={(e) => {removeClassFunction(e,room)}}>Remove</button>
                         </div>
                         )}
-                    
                 </div>
             : 
                  <div>
-                    
                        <div>
                             <RoomContainer currentInstructorInfo={currentInstructorInfo} auth={auth}/>
                        </div>
-                    
                 </div>
             }
                 
