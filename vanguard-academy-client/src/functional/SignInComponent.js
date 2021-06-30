@@ -99,23 +99,16 @@ const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setI
 
        
         <div>
-
-
                 <div className={classes.root}>
                 <Grid item xs={12}>
                         <Paper className={classes.paper}>
-                            <div>
                                 <h3> Sign In </h3>
-                            </div>
-                        
                         </Paper>
                         </Grid>
-                        <br></br>
-                        
+                        <br/>                        
                     <Grid container spacing={3}>
                         <Grid item xs={6}>
                         <Paper className={classes.paper}>
-                            
                             <div>
                                 <h3>Student</h3>
                                 <form onSubmit={(e) => {handleStudentSignIn(e)}}>
@@ -147,11 +140,7 @@ const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setI
                         </div>
                         </Paper>
                         </Grid>
-                        
-                        
                 </Grid>
-                
-            
             </div>
             {/* <div>
                 {isAuthenticated.isLoggedIn? 

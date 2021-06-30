@@ -85,10 +85,10 @@ const OthersProfileContainer = ({room, auth, currentInstructorInfo, student}) =>
                             <p> Name: {student.first_name} {student.middle_name} {student.last_name }</p>
                                 <div>
                                     
-                                    <p>Grade: {student.grade}</p>
-                                    <p>GPA: {student.grade}</p>
-                                    <p>Username: {student.username}</p>
-                                    <p>Email: {student.email}</p>
+                                    <p>Grade: {student.grade}<br/>
+                                    GPA: {student.grade}<br/>
+                                    Username: {student.username}<br/>
+                                    Email: {student.email}</p>
                                 </div>
                         </div>
                         

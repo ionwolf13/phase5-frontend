@@ -10,11 +10,11 @@ const NavContainer = ({isAuthenticated,setIsAuthenticated}) => {
     }
 
     return (
-        <div>
-                <div>    
+        <div className='nav-comp-main'>
+                <div className='nav-comp-main'>    
                     {(isAuthenticated.isLoggedIn)? 
                             [(isAuthenticated.role === 'stu')? 
-                            <div>
+                            <div className='nav-comp-main' id='nav-stu-sec'>
                                 <Link to='/profile'> Profile </Link>
                                 <Link to='/profile/details'> Edit Profile </Link>
                                 <Link to='/learnForm'> Learning Form </Link>
@@ -24,7 +24,7 @@ const NavContainer = ({isAuthenticated,setIsAuthenticated}) => {
                                 <button onClick={handleLogout}> Log Out </button>
                             </div>
                             : 
-                            <div>
+                            <div className='nav-comp-main' id='nav-inst-sec'>
                                 <Link to='/profile'> Profile </Link>
                                 <Link to='/profile/details'> Edit Profile </Link>
                                 <Link> Classes </Link>
@@ -34,7 +34,7 @@ const NavContainer = ({isAuthenticated,setIsAuthenticated}) => {
                             </div>
                             ]
                     : 
-                        <div>
+                        <div className='nav-comp-main' id='nav-neu-sec'>
                             <Link to='/home'> Home</Link>
                             <Link to='/about'> About </Link>
                             <Link to='/welcome'> Welcome </Link>            

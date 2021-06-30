@@ -7,7 +7,7 @@ const HomeContainer = (props) => {
 
     
     return (
-        <div>
+        <div className='cont-lvl-1'>
             {/* <h1>Home Page</h1> */}
             {/* <h1> Vanguard Academy </h1> */}
                  
