@@ -24,7 +24,7 @@ const AddmissionsInfoContainer = () => {
     return(
 
         
-        <div>
+        <div className='cont-lvl-1'>
             <h1> Admissions </h1>
             <div className={classes.root}>
                 <Grid container spacing={8}>

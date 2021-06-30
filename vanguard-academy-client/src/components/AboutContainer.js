@@ -25,8 +25,9 @@ const AboutContainer = (props) => {
       const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-        <Grid container spacing={3}>
+      <div className='cont-lvl-1'>
+        {/* // <div className={classes.root} className='cont-lvl-1'> */}
+        {/* <Grid container spacing={3}>
           <Grid item xs={12}>
             <Paper className={classes.paper}><img src={school2} /></Paper>
           </Grid>
@@ -79,7 +80,7 @@ const AboutContainer = (props) => {
             <Paper className={classes.paper}> <img src={schoolShield2} height={400} /></Paper>
           </Grid>
         </Grid>
-               
+                */}
                    
                    
         </div>

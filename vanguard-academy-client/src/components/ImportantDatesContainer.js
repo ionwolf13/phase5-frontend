@@ -21,7 +21,7 @@ const ImportantDatesContainer = () => {
 
 
     return(
-        <div>
+        <div className='cont-lvl-1'>
 
 
 <div className={classes.root}>

@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button'
 const WelcomeContainer = (props) => {
     
     return (
-        <div>
+        <div className='cont-lvl-1'>
             <h1>Welcome Page</h1>
                 <div>
                         <h2> Create an Account</h2>

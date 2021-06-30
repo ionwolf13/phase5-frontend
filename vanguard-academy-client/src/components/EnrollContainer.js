@@ -22,7 +22,7 @@ const EnrollContainer = (props)=> {
     
       const classes = useStyles();
     return (
-        <div>
+        <div className='cont-lvl-1'>
 
 
             <div className={classes.root}>
