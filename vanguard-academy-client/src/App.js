@@ -1,5 +1,5 @@
 import './App.css';
-import schoolShield from './schoolShield.jpg'
+import schoolShield from './pictures/valogo.png'
 import MainContainer from './components/MainContainer.js'
 
 function App() {

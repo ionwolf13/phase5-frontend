@@ -41,7 +41,7 @@
 }
 
 .app-container{
-  background: url(./pictures/lightblue-2.jpg) no-repeat center center;
+  background: url(./pictures/blue-9.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -84,6 +84,7 @@
   display: grid;
   align-content: center;
   align-self: center;
+  height: 100%;
 }
 
 #main-footer{
@@ -91,6 +92,7 @@
   grid-template-columns: 20% 20% 20% 20% 20%;
   align-content: center;
   align-self: center;
+  height: min-content;
 }
 
 #built{
