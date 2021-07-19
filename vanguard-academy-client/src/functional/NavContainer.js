@@ -10,40 +10,37 @@ const NavContainer = ({isAuthenticated,setIsAuthenticated}) => {
     }
 
     return (
-        <div className='nav-comp-main'>
-                <div className='nav-comp-main'>    
+        <div className='nav-main-comp'>
                     {(isAuthenticated.isLoggedIn)? 
                             [(isAuthenticated.role === 'stu')? 
-                            <div className='nav-comp-main' id='nav-stu-sec'>
-                                <Link to='/profile'> Profile </Link>
-                                <Link to='/profile/details'> Edit Profile </Link>
-                                <Link to='/learnForm'> Learning Form </Link>
-                                <Link> Schedule </Link>
-                                <Link> Assignments </Link>
-                                <Link to='/courses'> Request Course </Link>
+                            <div className='nav-comp' id='nav-detail-stu'>
+                                <Link className='nav-links' to='/profile'> Profile </Link>
+                                <Link className='nav-links' to='/profile/details'> Edit Profile </Link>
+                                <Link className='nav-links' to='/learnForm'> Learning Form </Link>
+                                <Link className='nav-links'> Schedule </Link>
+                                <Link className='nav-links'> Assignments </Link>
+                                <Link className='nav-links' to='/courses'> Request Course </Link>
                                 <button onClick={handleLogout}> Log Out </button>
                             </div>
                             : 
-                            <div className='nav-comp-main' id='nav-inst-sec'>
-                                <Link to='/profile'> Profile </Link>
-                                <Link to='/profile/details'> Edit Profile </Link>
-                                <Link> Classes </Link>
-                                <Link to='/classAssignments'> Class Assignments </Link>
-                                <Link> Assignment Data Table </Link>
+                            <div className='nav-comp' id='nav-detail-ins'>
+                                <Link className='nav-links' to='/profile'> Profile </Link>
+                                <Link className='nav-links' to='/profile/details'> Edit Profile </Link>
+                                <Link className='nav-links'> Classes </Link>
+                                <Link className='nav-links' to='/classAssignments'> Class Assignments </Link>
+                                <Link className='nav-links'> Assignment Data Table </Link>
                                 <button onClick={handleLogout}> Log Out </button>
                             </div>
                             ]
                     : 
-                        <div className='nav-comp-main' id='nav-neu-sec'>
-                            <Link to='/home'> Home</Link>
-                            <Link to='/about'> About </Link>
-                            <Link to='/welcome'> Welcome </Link>            
-                            <Link to='/admissions'> Admissions </Link>
-                            <Link to='/login'> Log In</Link>
+                        <div className='nav-comp' id='nav-detail'>
+                            <Link className='nav-links' to='/home'> Home</Link>
+                            <Link className='nav-links' to='/about'> About </Link>
+                            <Link className='nav-links' to='/welcome'> Welcome </Link>            
+                            <Link className='nav-links' to='/admissions'> Admissions </Link>
+                            <Link className='nav-links' to='/login'> Log In</Link>
                         </div>
-                    }
-                </div>
-            
+                    }           
         </div>
     )
 }

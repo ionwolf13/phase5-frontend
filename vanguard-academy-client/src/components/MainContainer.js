@@ -44,15 +44,14 @@ const MainContainer = (props) => {
       
         
     return(
-        <div className='main-comp-af1'> 
-             
+        <div className='main-comp'>                    ``
             <Router>
                     <NavContainer isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>
                    
                     <Switch>
                     <React.Fragment>
                         {isAuthenticated.isLoggedIn?
-                             <div className='logged-comp' id='comp-af1-lgi'>
+                             <div className='logged-comp' id='comp-lgi'>
                                 <Route exact path='/home' render={routerProps => <HomeContainer {...routerProps} />}/>
                                 <Route exact path='/about' render={routerProps => <AboutContainer {...routerProps} />}/>
                                 <Route exact path='/admissions' render={routerProps => <AdmissionInfosContainer {...routerProps} />}/>
@@ -68,7 +67,7 @@ const MainContainer = (props) => {
                                 <Route exact path='/classAssignments' render={routerProps =>  <AssignmentsContainer auth={isAuthenticated} {...routerProps} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>}/>
                             </div>
                             : 
-                            <div className='logged-comp'  id='comp-af1-lgo'>
+                            <div className='logged-comp'  id='comp-lgo'>
                                 <Route exact path='/home' render={routerProps => <HomeContainer {...routerProps} />}/>
                                 <Route exact path='/about' render={routerProps => <AboutContainer {...routerProps} />}/>
                                 <Route exact path='/admissions' render={routerProps => <AdmissionInfosContainer {...routerProps} />}/>
