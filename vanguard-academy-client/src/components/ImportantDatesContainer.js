@@ -1,48 +1,24 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid'
+// import React from 'react';
+// import { makeStyles } from '@material-ui/core/styles';
+// import Paper from '@material-ui/core/Paper';
+// import Grid from '@material-ui/core/Grid'
 
 const ImportantDatesContainer = () => {
 
-
-    const useStyles = makeStyles((theme) => ({
-        root: {
-          flexGrow: 1,
-        },
-        paper: {
-          padding: theme.spacing(2),
-          textAlign: 'center',
-          color: theme.palette.text.secondary,
-        },
-      }));
-    
-      const classes = useStyles();
-
-
     return(
         <div className='cont-lvl-1'>
+            <div>
+            <h2> IMPORTANT MAGNET DATES </h2>
+                    <p>
+                    To register and enroll your child in the school that he or she is zoned to attend, you will need the following:
+                    The child’s birth certificate or other proof of age and identity;
+                    Proof of your identity and residential address (driver’s license and utility bill); and
+                    A record of your child’s current immunizations signed by a doctor.
+                    Your child may be eligible to enroll provisionally if the required immunization
+                    process has begun. Texas law requires that a child must be enrolled by the child’s parent or guardian or another person with legal control of the child under a court order. It also requires the district to record the name, address, and date of birth of the person enrolling the student.
 
-
-<div className={classes.root}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                    <Paper className={classes.paper}>
-                        
-                    <h2> IMPORTANT MAGNET DATES </h2>
-                            <p>
-                            To register and enroll your child in the school that he or she is zoned to attend, you will need the following:
-                            The child’s birth certificate or other proof of age and identity;
-                            Proof of your identity and residential address (driver’s license and utility bill); and
-                            A record of your child’s current immunizations signed by a doctor.
-                            Your child may be eligible to enroll provisionally if the required immunization
-                            process has begun. Texas law requires that a child must be enrolled by the child’s parent or guardian or another person with legal control of the child under a court order. It also requires the district to record the name, address, and date of birth of the person enrolling the student.
-
-                            </p>
-                    </Paper>
-                    </Grid>
-                    <Grid item xs={6}>
-                    <Paper className={classes.paper}>
+                    </p>
+                </div>
                     <div>
                         <h2> Important Dates </h2>
                         <p> 
@@ -61,10 +37,7 @@ const ImportantDatesContainer = () => {
                             <strong> February 10, 2021 </strong> - Deadline for Parent Response to accept seat offered
                         </p>
                     </div>
-                    </Paper>
-                    </Grid>
-                    <Grid item xs={6}>
-                    <Paper className={classes.paper}>
+                  <div>
                     <h5> OFFICE OF SCHOOL CHOICE VIRTUAL FAIRS </h5>
                     <p> The Office of School Choice is holding Virtual Fairs where you can view and speak to all the different school magnet programs before submitting an application.
                         <strong> Virtual Fair 1 </strong> - September 19, 2020 from 9 a.m. till 12 noon
@@ -81,18 +54,9 @@ const ImportantDatesContainer = () => {
                     <p>
                         <strong> Virtual Fair 5 </strong>* - February 13, 2021 from 9 a.m. till 12 noon 
                     </p>
-                    </Paper>
-                    </Grid>
-                   
-                    
-                    
-                </Grid>
-                </div>
-            
-            <div>
                
-                
-            </div>
+                 </div>
+               
         </div>
     )
 }
