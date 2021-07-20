@@ -30,7 +30,7 @@ const EnrollContainer = (props)=> {
                     <Grid item xs={12}>
                     <Paper className={classes.paper}>
                         
-                            <h2> How To Enroll </h2>
+                            <h2 className='lvl-1-headers'> How To Enroll </h2>
                             <p>
                             To register and enroll your child in the school that he or she is zoned to attend, you will need the following:
                             The child’s birth certificate or other proof of age and identity;

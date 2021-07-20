@@ -7,7 +7,7 @@ const AddmissionsInfoContainer = () => {
 
     return(
         <div className='lvl-1-comp'>
-            <h1> Admissions </h1>
+            <h1 className='lvl-1-headers'> Admissions </h1>
             <div className=''>
                             <h2>HOW TO APPLY</h2>
                             <div>

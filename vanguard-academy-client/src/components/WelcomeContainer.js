@@ -6,7 +6,7 @@ const WelcomeContainer = (props) => {
     
     return (
         <div className='lvl-1-comp'>
-            <h1>Welcome Page</h1>
+            <h1 className='lvl-1-headers'>Welcome Page</h1>
                 <div>
                         <h2> Create an Account</h2>
                         <Link to='/enrollmentInfo'> Enroll </Link>
