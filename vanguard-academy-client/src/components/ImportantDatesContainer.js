@@ -6,7 +6,7 @@
 const ImportantDatesContainer = () => {
 
     return(
-        <div className='cont-lvl-1'>
+        <div className='lvl-1-comp'>
             <div>
             <h2> IMPORTANT MAGNET DATES </h2>
                     <p>
