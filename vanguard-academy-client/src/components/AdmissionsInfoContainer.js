@@ -1,35 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 import enroll from '../enroll.jpg'
 
 
 const AddmissionsInfoContainer = () => {
 
-    const useStyles = makeStyles((theme) => ({
-        root: {
-          flexGrow: 1,
-        },
-        paper: {
-          padding: theme.spacing(2),
-          textAlign: 'center',
-          color: theme.palette.text.secondary,
-        },
-      }));
-
-      const classes = useStyles();
-
     return(
-
-        
-        <div className='cont-lvl-1'>
+        <div className='lvl-1-comp'>
             <h1> Admissions </h1>
-            <div className={classes.root}>
-                <Grid container spacing={8}>
-                        <Grid item xs>
-                            <Paper className={classes.paper}>
+            <div className=''>
                             <h2>HOW TO APPLY</h2>
                             <div>
                          
@@ -42,10 +21,6 @@ const AddmissionsInfoContainer = () => {
                                 </p>
  
                             </div>
-                            </Paper>
-                        </Grid>
-                        <Grid item xs>
-                            <Paper className={classes.paper}>
                             <div>
                                 <h2>HOW TO SUBMIT AN APPLICATION</h2>
                                 <p>
@@ -54,15 +29,7 @@ const AddmissionsInfoContainer = () => {
                                 </p>
         
                             </div>
-                            
-                            </Paper>
-                        </Grid>
-                        
-                </Grid>
-                
-                <Grid container spacing={3}>
-                <Grid item xs>
-                            <Paper className={classes.paper}>
+                           
                             <h2>QUALIFYING CRITERIA</h2>
                             <div>
                      
@@ -71,10 +38,6 @@ const AddmissionsInfoContainer = () => {
                              </div>
                              <img src={enroll}/>
                             
-                            </Paper>
-                        </Grid>
-                        <Grid item xs>
-                            <Paper className={classes.paper}> 
                                 <div>
                                         <h2>APPLICATION INFORMATION</h2>
                                         <p>
@@ -87,20 +50,11 @@ const AddmissionsInfoContainer = () => {
                                         Paper Application Information found here
                                         </p>
                                 </div>
-                        </Paper>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Paper className={classes.paper}>
+                      
                             <Link to='/enrollmentInfo'> Enrollment </Link>
                             
-                            </Paper>
-                        </Grid>
-                        <Grid item xs>
-                            <Paper className={classes.paper}>
                             <Link to='/importantDates'> Important Dates </Link>
-                            </Paper>
-                        </Grid>
-                </Grid>
+                
             </div>
             
                    

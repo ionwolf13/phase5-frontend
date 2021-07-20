@@ -5,7 +5,7 @@ import {Link, Redirect} from 'react-router-dom';
 const WelcomeContainer = (props) => {
     
     return (
-        <div className='cont-lvl-1'>
+        <div className='lvl-1-comp'>
             <h1>Welcome Page</h1>
                 <div>
                         <h2> Create an Account</h2>

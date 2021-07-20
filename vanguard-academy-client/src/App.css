@@ -91,6 +91,8 @@
   align-content: center;
   align-self: center;
   height: 700px;
+  overflow: auto;
+  margin-bottom: 50px;
 }
 
 .nav-main-comp{
@@ -104,8 +106,6 @@ height: 50px;
 }
 
 .nav-comp{
-  padding-top: 25px;
-  padding-bottom: 25px;
   display: grid;
   column-gap: 25px;
   grid-template-columns: auto auto auto auto auto auto auto auto;
@@ -114,7 +114,27 @@ height: 50px;
 }
 
 .nav-links{
+  padding-top: 25px;
+  padding-bottom: 25px;
   width: 75px;
+  align-self: center;
+  justify-self: center;
+}
+
+.lvl-1-comp{
+  margin-top: -50px;
+  grid-column: 1/6;
+  grid-row: 2;
+  width: 1000px;
+  background-color: white;
+  padding: 10px 25px 25px 45px;
+  border-radius: 25px;
+  align-self: center;
+  justify-self: center;
+  opacity: 80%;
+}
+
+.sub-headers{
   align-self: center;
   justify-self: center;
 }
