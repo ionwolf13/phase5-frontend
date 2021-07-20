@@ -8,7 +8,7 @@ const ImportantDatesContainer = () => {
     return(
         <div className='lvl-1-comp'>
             <div>
-            <h2> IMPORTANT MAGNET DATES </h2>
+            <h2 className='lvl-1-headers'> IMPORTANT MAGNET DATES </h2>
                     <p>
                     To register and enroll your child in the school that he or she is zoned to attend, you will need the following:
                     The child’s birth certificate or other proof of age and identity;
