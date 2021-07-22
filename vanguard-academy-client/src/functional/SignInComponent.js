@@ -23,7 +23,7 @@ const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setI
         })     
         .then(res => { 
             if(res.data.token){
-                    localStorage.toke = res.data.token
+                    localStorage.token = res.data.token
                     let newData = JSON.parse(res.data.user)
                     setCurrentStudentInfo({student: newData, errors: res.errors, status: 200, currentClasses: newData.rooms, studentAssignments: newData.rooms.map(r => r.instructor)})
                     setIsAuthenticated({auth: true, role: "stu", isLoggedIn: true})    
