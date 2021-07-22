@@ -61,7 +61,7 @@ const LearningFormContainer = ({auth, currentStudentInfo, setCurrentStudentInfo}
    
     return(
 
-        <div>
+        <div className='lvl-2-comp'>
             
             <div>
                 <h1> Learning Style Form </h1>

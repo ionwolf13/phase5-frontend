@@ -7,13 +7,12 @@ const AboutContainer = (props) => {
       <div className='lvl-1-comp'>
         <h2 className='lvl-1-headers'>About Vanguard Academy </h2>
         <div  className='cont-lvl-1'>
-            
             <p>The <strong> Vanguard Academy </strong> provides a rigorous course that gives our students
             the opportunity to complete high school and an associate’s degree or at least 60 semester 
             credit hours towards a baccalaureate degree during grades 9-12. 
             </p>
-            <img id='school-frame'src={school} width='900'/>
         </div>
+        <img id='school-frame'src={school} width='900'/>
         <div>
             <h2>Our Mission</h2>
             <p>

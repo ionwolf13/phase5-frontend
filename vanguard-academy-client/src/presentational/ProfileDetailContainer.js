@@ -7,7 +7,7 @@ const ProfileDetailContainer = ({currentStudent, setCurrentStudentInfo, auth, cu
 
     
     return(
-        <div>
+        <div className='lvl-2-comp'>
             {(auth.role === "stu")? 
                 <div>
                         <div>
@@ -28,12 +28,8 @@ const ProfileDetailContainer = ({currentStudent, setCurrentStudentInfo, auth, cu
                                     Email: {currentStudent.student.email}
                                 </div>
                         </div>
-                        <div>
-                            <EditProfileFormContainer currentStudent={currentStudent} setCurrentStudentInfo={setCurrentStudentInfo} auth={auth}/>
-                        </div>
-                        <div>
-                            <DeleteProfileContainer student={currentStudent}/>
-                        </div>
+                        <EditProfileFormContainer currentStudent={currentStudent} setCurrentStudentInfo={setCurrentStudentInfo} auth={auth}/>
+                        <DeleteProfileContainer student={currentStudent}/>
                 </div>
             : 
                 <div>
@@ -41,35 +37,29 @@ const ProfileDetailContainer = ({currentStudent, setCurrentStudentInfo, auth, cu
                         
                         <div>
                                 <h2>{currentInstructor.instructor.first_name} {currentInstructor.instructor.middle_name} {currentInstructor.instructor.last_name }</h2>
-                                    <div>
-                                        <h2>Details</h2>
-                                    </div>
-
-                                    <div>
-                                        <p>Teaching Grade: 9</p>
-                                    </div>
-
-                                    <div>
-                                        <p>Course: {currentInstructor.currentClass.subject}</p>
-                                        <p>Room #: {currentInstructor.currentClass.room_number}</p>
-                                    </div>
-
-                                    <div>
-                                        <p>Username: {currentInstructor.instructor.username}</p>
-                                    </div>
-
-                                    <div>
-                                        Contact Information:
-                                        <div>
-                                            <p>Email: {currentInstructor.instructor.email}</p>
-                                            <p>Phone:</p>
-                                        </div>
-                                    </div>
-                        </div>
                                 <div>
-                                    <EditProfileFormContainer currentInstructor={currentInstructor} setCurrentInstructorInfo={setCurrentInstructorInfo} auth={auth}/>
+                                    <h2>Details</h2>
                                 </div>
-                                
+
+                                <div>
+                                    <p>Teaching Grade: 9</p>
+                                </div>
+
+                                <div>
+                                    <p>Course: {currentInstructor.currentClass.subject}</p>
+                                    <p>Room #: {currentInstructor.currentClass.room_number}</p>
+                                </div>
+
+                                <div>
+                                    <p>Username: {currentInstructor.instructor.username}</p>
+                                </div>
+                                <div>
+                                    <p>Contact Information:</p>
+                                    <p>Email: {currentInstructor.instructor.email}</p>
+                                    <p>Phone:</p>
+                                </div>
+                        </div>
+                        <EditProfileFormContainer currentInstructor={currentInstructor} setCurrentInstructorInfo={setCurrentInstructorInfo} auth={auth}/> 
                 </div>
             }
         </div>
