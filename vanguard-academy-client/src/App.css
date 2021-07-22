@@ -113,7 +113,7 @@
 
 .lvl-1-comp{
   margin-top: 25px;
-  width: 1200px;
+  width: 1300px;
   background-color: white;
   border-radius: 25px;
   opacity: 80%;
@@ -139,8 +139,40 @@
   align-items: center;
 }
 
-
-
+.lvl-2-comp{
+  margin-top: 25px;
+  width: 1400px;
+  background-color: white;
+  border-radius: 25px;
+  opacity: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  column-gap: 25px;
+  padding: 35px;
+}
+.profile-column{
+  flex: 20%;
+  border-color: blue;
+  border-style: solid;
+  border-radius: 25px;
+  height: 100%;
+  padding: 25px;
+  height: 700px;
+  max-height: 700px;
+}
+.school-column{
+  flex: 70%;
+  border-color: blue;
+  border-style: solid;
+  border-radius: 25px;
+  height: 100%;
+  padding: 25px;
+  overflow-y: scroll;
+  max-height: 700px;
+}
 
 /* images */
 

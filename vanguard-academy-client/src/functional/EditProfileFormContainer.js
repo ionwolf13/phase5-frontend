@@ -23,21 +23,19 @@ const EditProfileFormContainer = ({currentStudent, setCurrentStudentInfo, auth, 
             Object.entries(user).forEach(arr => {
                                 if(!user[arr[0]]){
                         delete user[arr[0]]
-                    }
-            })
-                        
-                if(Object.keys(user).length !== 0){
-                    axios({
-                            method: 'PATCH',
-                            url: urlAdapter,
-                            data: { user }
-                        })
-                        .then(res => { 
-                            setCurrentStudentInfo({...currentStudent, student: res.data})
-                        })
-                }
+            }})          
+            if(Object.keys(user).length !== 0){
+                axios({
+                        method: 'PATCH',
+                        url: urlAdapter,
+                        data: { user }
+                    })
+                    .then(res => { 
+                        setCurrentStudentInfo({...currentStudent, student: res.data})
+                    })
+            }
             else{
-            return null
+                return null
             }
 
         }
@@ -50,38 +48,31 @@ const EditProfileFormContainer = ({currentStudent, setCurrentStudentInfo, auth, 
                 password: password.value,
                 password_confirmation: password_confirmation.value
                 }
-
                 Object.entries(instructor).forEach(arr => {
                     if(!instructor[arr[0]]){
                             delete instructor[arr[0]]
                         }
                 })
-            
-                if(Object.keys(instructor).length !== 0){
-                    axios({
-                            method: 'PATCH',
-                            url: urlAdapter,
-                            data: { instructor }
-                        })
-                        .then(res => { 
-                            setCurrentInstructorInfo({...currentInstructor, instructor: res.data})  
-                        })
-                }
+            if(Object.keys(instructor).length !== 0){
+                axios({
+                        method: 'PATCH',
+                        url: urlAdapter,
+                        data: { instructor }
+                    })
+                    .then(res => { 
+                        setCurrentInstructorInfo({...currentInstructor, instructor: res.data})  
+                    })
+            }
             else{
-            return null
+                return null
             }
         }
-
-        
         e.target.reset()
-        
-        
     }
 
     return(
 
         <div>
-            <div>
                 <form  onSubmit={e => handleEnrollFormFunction(e)}>
                         <label>Username</label>
                         <input type='text' label='Username' name='username' /><br></br>
@@ -95,8 +86,6 @@ const EditProfileFormContainer = ({currentStudent, setCurrentStudentInfo, auth, 
                         <input type='password' label='Confirm Password' name='password_confirmation'/><br></br>
                         <button type='submit' value='submit'>Submit</button>
                     </form>
-            </div>
-            
         </div>
     )
 }
