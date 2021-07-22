@@ -32,35 +32,29 @@ const EnrollFormContainer = () => {
 
 
     return(
-        <div>
-            
-            <div>
-                    <h2>Submit An Application</h2>
-                    <form  onSubmit={e => handleEnrollFormFunction(e)}>
-                        <label>First Name</label>
-                        <input type='text' label='First Name' name='first_name' /><br></br>
-                        <label>Middle Name</label>
-                        <input type='text' label='Middle Name' name='middle_name' /><br></br>
-                        <label>Last name</label>
-                        <input type='text' label='Last Name' name='last_name' /><br></br>
-                        <label>Username</label>
-                        <input type='text' label='Username' name='username' /><br></br>
-                        <label>Age</label>
-                        <input type='text' label='Age' name='age' /><br></br>
-                        <label>Email</label>
-                        <input type='text' label='Email' name='email' /><br></br>
-                        <label>Confirm Email</label>
-                        <input type='text' label='Email' name='email_confirmation' /><br></br>
-                        <label>Password</label>
-                        <input type='password' label='Password' name='password' onChange={e => {console.log(e.target.value)}} /><br></br>
-                        <label>Confirm Password</label>
-                        <input type='password' label='Confirm Password' name='password_confirmation' onChange={e => {console.log(e.target.value)}} /><br></br>
-                        <button type='submit' value='submit'>Submit</button>
-                    </form>
-
-            </div>
-
-
+        <div className='lvl-1-comp'>
+            <h2 className='lvl-1-headers'>Submit An Application</h2>
+            <form  onSubmit={e => handleEnrollFormFunction(e)}>
+                <label>First Name</label>
+                <input type='text' label='First Name' name='first_name' /><br></br>
+                <label>Middle Name</label>
+                <input type='text' label='Middle Name' name='middle_name' /><br></br>
+                <label>Last name</label>
+                <input type='text' label='Last Name' name='last_name' /><br></br>
+                <label>Username</label>
+                <input type='text' label='Username' name='username' /><br></br>
+                <label>Age</label>
+                <input type='text' label='Age' name='age' /><br></br>
+                <label>Email</label>
+                <input type='text' label='Email' name='email' /><br></br>
+                <label>Confirm Email</label>
+                <input type='text' label='Email' name='email_confirmation' /><br></br>
+                <label>Password</label>
+                <input type='password' label='Password' name='password' onChange={e => {console.log(e.target.value)}} /><br></br>
+                <label>Confirm Password</label>
+                <input type='password' label='Confirm Password' name='password_confirmation' onChange={e => {console.log(e.target.value)}} /><br></br>
+                <button type='submit' value='submit'>Submit</button>
+            </form>
         </div>
     )
 }

@@ -75,7 +75,7 @@ const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setI
         
     return(
         <div className='lvl-1-comp'>
-            <h3> Sign In </h3>
+            <h3 className='lvl-1-headers'> Sign In </h3>
             <div>
                 <h3>Student</h3>
                 <form onSubmit={(e) => {handleStudentSignIn(e)}}>
