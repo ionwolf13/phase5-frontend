@@ -44,7 +44,7 @@ const MainContainer = (props) => {
       
         
     return(
-        <div className='main-comp'>                    ``
+        <div className='main-comp'>                    
             <Router>
                     <NavContainer isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated}/>
                    
