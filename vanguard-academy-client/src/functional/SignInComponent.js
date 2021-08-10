@@ -75,33 +75,39 @@ const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setI
         
     return(
         <div className='lvl-1-comp'>
-            <h3 className='lvl-1-headers'> Sign In </h3>
-            <div>
+            <h2 className='lvl-1-headers'> Sign In </h2>
+            <div className='sign-cards'>
                 <h3>Student</h3>
-                <form onSubmit={(e) => {handleStudentSignIn(e)}}>
+                <form className='forms-comp' onSubmit={(e) => {handleStudentSignIn(e)}}>
+                    <div>
                         <label>Username</label><br></br>
-                        <input type="text" name="username"/>  <br></br>  
+                        <input className='form-inputs' type="text" name="username"/>  <br></br>  
+                    </div>
+                    <div>
                         <label>PassWord</label><br></br>
-                        <input type="password" name="password"/><br></br>
-                        <button type='submit' value='submit' variant="contained" color="primary" disableElevation>
-                                Submit
-                        </button>
+                        <input className='form-inputs' type="password" name="password"/><br></br>
+                    </div>
+                    <button className='form-buttons' type='submit' value='submit' variant="contained" color="primary" disableElevation>
+                            Submit
+                    </button>
                 </form>
             </div>
-            <div>
+            <div className='sign-cards'>
                 <h3>Faculty</h3>
-                <form onSubmit={(e) => {handleInstructorSignIn(e)}}>
-                        <label>Username</label><br></br>
-                        <input type="text" name="username"/>  <br></br>  
-                        <label>PassWord</label><br></br>
-                        <input type="password" name="password"/><br></br>
-                        <button type='submit' value='submit' variant="contained" color="primary" disableElevation>
+                <form className='forms-comp' onSubmit={(e) => {handleInstructorSignIn(e)}}>
+                        <div>
+                            <label>Username</label><br></br>
+                            <input className='form-inputs' type="text" name="username"/>  <br></br>  
+                        </div>
+                        <div>
+                            <label>PassWord</label><br></br>
+                            <input className='form-inputs' type="password" name="password"/><br></br>
+                        </div>
+                        <button className='form-buttons' type='submit' value='submit' variant="contained" color="primary" disableElevation>
                             Submit
                         </button>
                 </form>
-            </div>
-                        
-                          
+            </div>                       
         </div>
     )
 }
