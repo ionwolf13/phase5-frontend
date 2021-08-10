@@ -51,9 +51,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
   align-items: center;
-  height: 100%;
+  height: auto;
   width: 100%;
   overflow: hidden;
 }
@@ -62,7 +61,6 @@
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  opacity: 90%;
   height: 100px;
   width: 100%;
 }
@@ -78,28 +76,34 @@
 .main-comp{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
   align-items: center;
-  height: max-content;
+  justify-content: center;
   margin-bottom: 50px;
-  height: 100%;
+  width: 100%;
+  height: auto;
+}
+
+.logged-comp{
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-main-comp{
   margin-top: 15px;
   background-color: white;
-  border-radius: 25px;
-  opacity: 80%;
   height: 50px;
-  width: 110%;
+  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .nav-comp{
   display: flex;
+  width: 100%;
+  justify-content: space-evenly;
   column-gap: 30px;
 }
 
@@ -116,7 +120,6 @@
   width: 1300px;
   background-color: white;
   border-radius: 25px;
-  opacity: 80%;
   display: flex;
   flex-direction: column;
   flex-flow: wrap;
@@ -131,6 +134,33 @@
   width: 100%;
   text-align: center;
   margin-bottom: 25px;
+}
+
+.sign-cards{
+  background-image: url(./pictures/blue-1.jpg);
+  background-position: center;
+  border-style: solid;
+  border-radius: 25px;
+  border-color: rgb(20, 95, 255);
+  padding: 35px;
+  background-color: white;
+  color: white;
+}
+
+.forms-comp{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.form-inputs{
+  border-radius: 25px;
+}
+
+.form-buttons{
+  border-radius: 25px;
+  width: 50%;
 }
 
 #main-footer{
@@ -151,7 +181,6 @@
   justify-content: center;
   padding: 25px;
   column-gap: 25px;
-  padding: 35px;
 }
 .profile-column{
   flex: 20%;
@@ -183,4 +212,29 @@
 #owl{
   height: 100px;
   align-self: center;
+}
+
+#main-footer{
+  background-image: linear-gradient(to right,rgb(97, 147, 255), lightblue, rgb(97, 147, 255));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: black;
+  padding: 25px;
+}
+
+#footer-comp{
+  flex: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#footer-cont{
+  flex: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
