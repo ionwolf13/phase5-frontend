@@ -30,7 +30,7 @@ const AddmissionsInfoContainer = () => {
                 <div>
                     <p>Students must have a minimum matrix score of "75" in order to qualify.</p>
                 </div>
-                <img src={enroll}/>
+                <img src={enroll} alt='enroll logo'/>
                 <div>
                     <h2>APPLICATION INFORMATION</h2>
                     <p>

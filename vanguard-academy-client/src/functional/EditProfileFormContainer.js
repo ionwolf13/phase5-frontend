@@ -72,19 +72,30 @@ const EditProfileFormContainer = ({currentStudent, setCurrentStudentInfo, auth, 
 
     return(
 
-        <div>
-                <form  onSubmit={e => handleEnrollFormFunction(e)}>
-                        <label>Username</label>
-                        <input type='text' label='Username' name='username' /><br></br>
-                        <label>Email</label>
-                        <input type='text' label='Email' name='email' /><br></br>
-                        <label>Confirm Email</label>
-                        <input type='text' label='Email' name='email_confirmation' /><br></br>
-                        <label>Password</label>
-                        <input type='password' label='Password' name='password'/><br></br>
-                        <label>Confirm Password</label>
-                        <input type='password' label='Confirm Password' name='password_confirmation'/><br></br>
-                        <button type='submit' value='submit'>Submit</button>
+        <div className='form-cont'>   
+            <h1>Edit Profile</h1>
+                <form className='forms-comp' onSubmit={e => handleEnrollFormFunction(e)}>
+                        <div className='form-sections'>
+                            <label>Username</label>
+                            <input className='form-inputs' type='text' label='Username' name='username' /><br></br>
+                        </div>
+                        <div className='form-sections'>
+                            <label>Email</label>
+                            <input className='form-inputs' type='text' label='Email' name='email' /><br></br>
+                        </div>
+                        <div className='form-sections'>
+                            <label>Confirm Email</label>
+                            <input className='form-inputs' type='text' label='Email' name='email_confirmation' /><br></br>
+                        </div>
+                        <div className='form-sections'>
+                            <label>Password</label>
+                            <input className='form-inputs' type='password' label='Password' name='password'/><br></br>
+                        </div>
+                        <div className='form-sections'>
+                            <label>Confirm Password</label>
+                            <input className='form-inputs' type='password' label='Confirm Password' name='password_confirmation'/><br></br>
+                        </div>
+                        <button className='form-buttons' id='edit-form-button' type='submit' value='submit'>Submit</button>
                     </form>
         </div>
     )

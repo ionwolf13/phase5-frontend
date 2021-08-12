@@ -15,7 +15,6 @@ const NavContainer = ({isAuthenticated,setIsAuthenticated}) => {
                             [(isAuthenticated.role === 'stu')? 
                             <div className='nav-comp' id='nav-detail-stu'>
                                 <div><Link className='nav-links' to='/profile'> Profile </Link></div>
-                                <div><Link className='nav-links' to='/profile/details'> Edit Profile </Link></div>
                                 <div><Link className='nav-links' to='/learnForm'> Learning Form </Link></div>
                                 <div><Link className='nav-links'> Schedule </Link></div>
                                 <div><Link className='nav-links'> Assignments </Link></div>

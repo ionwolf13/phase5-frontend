@@ -107,7 +107,7 @@ const SignInComponent = ({setCurrentStudentInfo, currentStudentInfo, rooms, setI
                             Submit
                         </button>
                 </form>
-            </div>                       
+            </div>                      
         </div>
     )
 }
