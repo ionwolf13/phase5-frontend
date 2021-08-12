@@ -235,6 +235,11 @@
   border-radius: 25px;
 }
 
+.fieldsets{
+  display: flex;
+  flex-flow: column;
+}
+
 .school-column{
   flex: 70%;
   border-color: blue;
@@ -259,7 +264,7 @@
 }
 
 #main-footer{
-  background-image: linear-gradient(to right,rgb(97, 147, 255), lightblue, rgb(97, 147, 255));
+  background-image: linear-gradient(to right,rgb(195, 213, 250), rgb(33, 94, 175), rgb(168, 220, 255));
   display: flex;
   flex-wrap: wrap;
   align-items: center;
