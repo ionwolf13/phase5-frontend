@@ -2,7 +2,7 @@ import React from 'react';
 import school from '../school2.jpg';
 
 
-const AboutContainer = (props) => {
+const AboutContainer = () => {
     return (
       <div className='lvl-1-comp'>
         <h2 className='lvl-1-headers'>About Vanguard Academy </h2>
@@ -12,7 +12,7 @@ const AboutContainer = (props) => {
             credit hours towards a baccalaureate degree during grades 9-12. 
             </p>
         </div>
-        <img id='school-frame'src={school} width='900'/>
+        <img id='school-frame'src={school} alt='school' width='900'/>
         <div>
             <h2>Our Mission</h2>
             <p>

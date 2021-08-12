@@ -5,7 +5,6 @@ import HomeContainer from './HomeContainer.js';
 import WelcomeContainer from './WelcomeContainer.js';
 import axios from 'axios';
 import NavContainer from '../functional/NavContainer.js';
-import FooterContainer from '../presentational/FooterContainer.js';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import SignInComponent from '../functional/SignInComponent.js';
 import EnrollFormContainer from '../functional/EnrollFormContainer.js';
@@ -31,6 +30,8 @@ const MainContainer = (props) => {
         const [currentInstructorInfo, setCurrentInstructorInfo] = useState({instructor: {}, errors: [], status: 200, currentClasses: []})
         const [currentStudentInfo, setCurrentStudentInfo] = useState({student: {}, errors: [], status: 200, currentClasses: []})
         const [isAuthenticated,setIsAuthenticated] = useState({auth: false, role: null, isLoggedIn: false});
+        const [profileButton, setProfileButton] = useState({choice: "home"})
+
         useEffect(() => {
             const fetchData = async () => {
               
@@ -60,7 +61,7 @@ const MainContainer = (props) => {
                                 <Route exact path='/enrollmentForm' render={routerProps => <EnrollFormContainer {...routerProps} />}/>
                                 <Route path='/welcome' render={routerProps => <WelcomeContainer {...routerProps}/>}/>
                                 <Route exact path='/login' render={routerProps => <SignInComponent {...routerProps} rooms={rooms} setCurrentStudentInfo={setCurrentStudentInfo} currentStudentInfo={currentStudentInfo} setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>}/>
-                                <Route exact path='/profile' render={routerProps => <ProfileSection {...routerProps} isAuthenticated={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} rooms={rooms} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>} />
+                                <Route exact path='/profile' render={routerProps => <ProfileSection {...routerProps} isAuthenticated={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} rooms={rooms} currentInstructorInfo={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo} profileButton={profileButton} setProfileButton={setProfileButton}/>} />
                                 <Route exact path='/learnForm' render={routerProps => <LearningFormContainer {...routerProps} auth={isAuthenticated} currentStudentInfo={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo}/>} />
                                 <Route exact path='/profile/details' render={routerProps => <ProfileDetailContainer auth={isAuthenticated} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} currentInstructor={currentInstructorInfo} setCurrentInstructorInfo={setCurrentInstructorInfo}/>} />
                                 <Route exact path='/courses' render={routerProps => <AddClassContainer  rooms={rooms} currentStudent={currentStudentInfo} setCurrentStudentInfo={setCurrentStudentInfo} auth={isAuthenticated} />}/>

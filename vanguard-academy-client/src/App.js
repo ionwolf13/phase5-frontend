@@ -1,6 +1,7 @@
 import './App.css';
-import schoolShield from './pictures/valogo.jpg'
-import MainContainer from './components/MainContainer.js'
+import schoolShield from './pictures/valogo.jpg';
+import MainContainer from './components/MainContainer.js';
+import FooterContainer from './presentational/FooterContainer';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
           <h1 className='main-header-details' id='main-title'>Vanguard Academy</h1>
         </header>
       <MainContainer />
+      <FooterContainer />
     </div>
   )
 }

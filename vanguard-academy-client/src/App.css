@@ -84,7 +84,8 @@
 }
 
 .logged-comp{
-  width: 95%;
+  width: auto;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,7 +140,7 @@
 .sign-cards{
   background-image: url(./pictures/blue-1.jpg);
   background-position: center;
-  border-style: solid;
+  border-style: 2px solid;
   border-radius: 25px;
   border-color: rgb(20, 95, 255);
   padding: 35px;
@@ -152,6 +153,11 @@
   flex-flow: column;
   align-items: center;
   gap: 25px;
+}
+
+.form-sections{
+  display: flex;
+  flex-flow: column;
 }
 
 .form-inputs{
@@ -174,7 +180,7 @@
   width: 1400px;
   background-color: white;
   border-radius: 25px;
-  opacity: 80%;
+  opacity: 90%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -183,24 +189,62 @@
   column-gap: 25px;
 }
 .profile-column{
+  background-image: url(./pictures/blue-1.jpg);
+  color: white;
   flex: 20%;
   border-color: blue;
-  border-style: solid;
+  border-style:  1px solid;
   border-radius: 25px;
   height: 100%;
   padding: 25px;
   height: 700px;
   max-height: 700px;
 }
+
+.image-cont{
+  width: 100%;
+  height: auto;
+  display: flex;
+  background-image: url(./pictures/sectionBackground/hexSec.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+  padding: 35px;
+  border-radius: 50px;
+  margin-bottom: 25px;
+}
+
+.profile-image{
+  width: 100%;
+  height: auto;
+  border-radius: 100px;
+  align-self: flex-end;
+  justify-self: right;
+}
+
+.button-cont{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  margin-top: 25px;
+}
+
+.profile-buttons{
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 25px;
+}
+
 .school-column{
   flex: 70%;
   border-color: blue;
   border-style: solid;
   border-radius: 25px;
-  height: 100%;
+  width: auto;
+  height: 700px;
   padding: 25px;
+  overflow: hidden;
   overflow-y: scroll;
-  max-height: 700px;
 }
 
 /* images */
@@ -225,16 +269,17 @@
   padding: 25px;
 }
 
-#footer-comp{
-  flex: 50%;
+.footer-cont{
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  gap: 25px;
+}
+#footer-comp{
+  flex: 40%;
+  
 }
 
 #footer-cont{
-  flex: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  flex: 60%;
 }
