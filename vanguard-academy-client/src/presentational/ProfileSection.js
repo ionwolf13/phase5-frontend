@@ -11,11 +11,10 @@ import profileDefault from '../pictures/icons/profileIcon.png'
 const ProfileSection = ({profileButton, setProfileButton, currentStudentInfo, rooms, setCurrentStudentInfo, isAuthenticated, currentInstructorInfo, setCurrentInstructorInfo}) => {
     
     const updateButton = (e,choiceT) => {
+        
         e.preventDefault();
-        console.log(choiceT)
         setProfileButton({choice: choiceT})
     }
-
 
     return(
         <span>
