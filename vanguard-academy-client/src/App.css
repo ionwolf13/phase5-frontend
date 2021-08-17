@@ -252,6 +252,30 @@
   overflow-y: scroll;
 }
 
+#school-column-sec1{
+ display: flex;
+ flex-flow: column; 
+ justify-content: center;
+ align-items: center;
+}
+
+.charts-container{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  padding: 25px;
+  width: 100%;
+  border-color: blue;
+  border-style: solid;
+  border-radius: 25px;
+}
+
+.chart-comp{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
 /* images */
 
 #school-frame{

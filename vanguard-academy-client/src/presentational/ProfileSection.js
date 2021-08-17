@@ -1,12 +1,15 @@
 import React from 'react'
-import { useState } from 'react';
+// import { useState } from 'react';
 import ScheduleContainer from './ScheduleContainer.js';
 import EditProfileFormContainer from '../functional/EditProfileFormContainer.js';
-import AddClassContainer from './AddClassContainer.js';
-import ProfileDetailContainer from './ProfileDetailContainer.js';
-import ClassRoomContainer from '../functional/ClassRoomContainer.js';
-import AssignmentsContainer from './AssignmentsContainer.js';
+// import AddClassContainer from './AddClassContainer.js';
+// import ProfileDetailContainer from './ProfileDetailContainer.js';
+// import ClassRoomContainer from '../functional/ClassRoomContainer.js';
+// import AssignmentsContainer from './AssignmentsContainer.js';
 import profileDefault from '../pictures/icons/profileIcon.png'
+import GpaChartComponent from '../chartComponents/GpaChartComponent.js';
+import GradeChartComponent from '../chartComponents/GradeChartComponent.js';
+import LearnStyleChartComponent from '../chartComponents/LearnStyleChartComponent.js';
 
 const ProfileSection = ({profileButton, setProfileButton, currentStudentInfo, rooms, setCurrentStudentInfo, isAuthenticated, currentInstructorInfo, setCurrentInstructorInfo}) => {
     
@@ -38,8 +41,13 @@ const ProfileSection = ({profileButton, setProfileButton, currentStudentInfo, ro
                     </div>
                     <div className='school-column'>
                         {(profileButton.choice === "home")? 
-                            <div>
+                            <div className='' id='school-column-sec1'>
                                 <h1>Home</h1>
+                                <div className='charts-container'>
+                                    <GradeChartComponent />
+                                    <GpaChartComponent />
+                                    <LearnStyleChartComponent />
+                                </div>
                             </div>
                         :
                         [(profileButton.choice === 'schedule')? 
