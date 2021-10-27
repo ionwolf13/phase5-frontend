@@ -9,10 +9,7 @@ const EnrollFormContainer = () => {
 
         const [first_name, middle_name, last_name, username, age, email, email_confirmation, password, password_confirmation] = e.target
 
-        axios({
-            method: 'POST',
-            url: 'http://localhost:3001/users',
-            data: { user: {
+        let user = {
                 first_name: first_name.value,
                 middle_name: middle_name.value,
                 last_name: last_name.value,
@@ -22,7 +19,11 @@ const EnrollFormContainer = () => {
                 email_confirmation: email_confirmation.value,
                 password: password.value,
                 password_confirmation: password_confirmation.value
-                }    
+                }  
+        axios({
+            method: 'POST',
+            url: 'http://localhost:3001/users',
+            data: { user }  
             }                
         })
         .then(res => console.log(res, "this the new user"))
