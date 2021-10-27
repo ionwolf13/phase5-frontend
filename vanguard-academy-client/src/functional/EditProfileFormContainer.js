@@ -31,7 +31,7 @@ const EditProfileFormContainer = ({currentStudent, setCurrentStudentInfo, auth, 
                         data: { user }
                     })
                     .then(res => { 
-                        setCurrentStudentInfo({...currentStudent, student: res.data})
+                        setUserInfo({ user: res.data})
                     })
             }
             else{
