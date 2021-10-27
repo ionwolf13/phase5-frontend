@@ -26,7 +26,7 @@ const EnrollFormContainer = () => {
             data: { user }  
             }                
         })
-        .then(res => console.log(res, "this the new user"))
+        .then(res => console.log(res.data, "this the new user"))
         e.target.reset()
 
     }, []);
